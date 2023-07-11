@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../configs/firebaseConfig";
 
 const SignUp = () => {
@@ -16,6 +16,23 @@ const SignUp = () => {
       setPassword("");
     } catch (error) {
       console.error("Error while creating user account:", error);
+      setEmail("");
+      setPassword("");
+    }
+  };
+
+  const handleGoogleSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      console.log("User account created successfully with Google!");
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error("Error creating user account with Google:", error);
+      setEmail("");
+      setPassword("");
     }
   };
 
@@ -52,6 +69,8 @@ const SignUp = () => {
         <button type="submit" onClick={handleSignUp}>
             Sign Up
         </button>
+
+        <button onClick={handleGoogleSignUp}>Sign Up with Google</button>
 
         <div className="footer">
           <p>If you have an account?</p>

@@ -16,6 +16,8 @@ const SignIn = () => {
             setPassword("");
         } catch (error) {
             console.error("Authentication error:", error);
+            setEmail("");
+            setPassword("");
         }
     };
 
