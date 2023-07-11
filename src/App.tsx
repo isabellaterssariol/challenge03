@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root";
 import SignIn from "./auth/SignIn";
 import SignUp from "./auth/SignUp";
+import { FirebaseAppProvider } from "reactfire";
+import { firebaseConfig } from "./configs/firebaseConfig";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
          index: true,
-         element: <SignIn />,
+         element: <SignIn/>,
       },
       {
          path: "/sign-up",
@@ -47,7 +49,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <RouterProvider router={router} />
+    </FirebaseAppProvider>
+  );
 }
 
 export default App;

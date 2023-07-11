@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../configs/firebaseConfig";
 
 const SignIn = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSignIn = async (e: React.FormEvent) => {
+        e.preventDefault();
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            console.log("User logged in successfully!");
+            setEmail("");
+            setPassword("");
+        } catch (error) {
+            console.error("Authentication error:", error);
+        }
+    };
+
   return (
-    <div className="container">
+    <>
       <header className="header">
         <span>Audio</span>
         <p>It's a modular and designed to last</p>
@@ -15,6 +33,8 @@ const SignIn = () => {
             name="email"
             id="email"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -24,12 +44,14 @@ const SignIn = () => {
             name="password"
             id="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
         <a href="#">Forgot Password</a>
 
-        <button type="submit">
+        <button type="submit" onClick={handleSignIn}>
             Sign In
         </button>
 
@@ -38,8 +60,8 @@ const SignIn = () => {
           <Link to="/sign-up">Sign Up here</Link>
         </div>
       </form>
-    </div>
+    </>
   );
-}
+};
 
 export default SignIn;

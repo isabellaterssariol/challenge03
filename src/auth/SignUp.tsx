@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../configs/firebaseConfig";
 
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      console.log("User account created successfully!");
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error("Error while creating user account:", error);
+    }
+  };
+
   return (
-    <div className="container">
+    <>
       <header className="header">
         <span>Audio</span>
         <p>It's a modular and designed to last</p>
@@ -15,6 +33,8 @@ const SignUp = () => {
             name="email"
             id="email"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -24,10 +44,12 @@ const SignUp = () => {
             name="password"
             id="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
-        <button type="submit">
+        <button type="submit" onClick={handleSignUp}>
             Sign Up
         </button>
 
@@ -36,7 +58,7 @@ const SignUp = () => {
           <Link to="/">Sign In here</Link>
         </div>
       </form>
-    </div>
+    </>
   );
 }
 
