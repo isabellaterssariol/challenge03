@@ -5,6 +5,7 @@ import SignIn from "./auth/SignIn";
 import SignUp from "./auth/SignUp";
 import { FirebaseAppProvider } from "reactfire";
 import { firebaseConfig } from "./configs/firebaseConfig";
+import HomePage from "./pages/HomePage";
 
 const router = createBrowserRouter([
   {
@@ -13,15 +14,15 @@ const router = createBrowserRouter([
     children: [
       {
          index: true,
-         element: <SignIn/>,
+         element: <HomePage />,
       },
+      {
+        path: "/sign-in",
+        element: <SignIn />,
+     },
       {
          path: "/sign-up",
          element: <SignUp />,
-      },
-      {
-        // path: "/home",
-        // element: <HomePage />,
       },
       {
         // path: "/products",

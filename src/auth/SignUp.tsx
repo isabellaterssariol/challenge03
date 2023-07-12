@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from "../configs/firebaseConfig";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,6 +15,7 @@ const SignUp = () => {
       console.log("User account created successfully!");
       setEmail("");
       setPassword("");
+      navigate("/");
     } catch (error) {
       console.error("Error while creating user account:", error);
       setEmail("");
@@ -27,6 +29,7 @@ const SignUp = () => {
     try {
       await signInWithPopup(auth, provider);
       console.log("User account created successfully with Google!");
+      navigate("/");
     } catch (error) {
       console.error("Error creating user account with Google:", error);
     }
@@ -38,6 +41,7 @@ const SignUp = () => {
     try {
       await signInWithPopup(auth, provider);
       console.log("User account created successfully with Facebook!");
+      navigate("/");
     } catch (error) {
       console.error("Error creating user account with Facebook:", error);
     }
@@ -82,7 +86,7 @@ const SignUp = () => {
 
         <div className="footer">
           <p>If you have an account?</p>
-          <Link to="/">Sign In here</Link>
+          <Link to="/sign-in">Sign In here</Link>
         </div>
       </form>
     </>
