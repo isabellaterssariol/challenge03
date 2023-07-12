@@ -2,3 +2,9 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --color-primary: #0ACF83;
+  --color-grey: #BABABA;
+  --color-white: #FFFFFF;
+}
