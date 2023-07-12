@@ -9,6 +9,8 @@ interface LoginPageProps {
   title: string;
   handleGoogleSignUp?: (e: React.FormEvent) => void;
   handleFacebookSignUp?: (e: React.FormEvent) => void;
+  handleGoogleSignIn?: (e: React.FormEvent) => void;
+  handleFacebookSignIn?: (e: React.FormEvent) => void;
   footerText: string;
   footerLink: string;
   onSubmit: (email: string, password: string, e: React.FormEvent) => void;
@@ -18,6 +20,8 @@ const LoginPage: React.FC<LoginPageProps> = ({
   title,
   handleGoogleSignUp,
   handleFacebookSignUp,
+  handleGoogleSignIn,
+  handleFacebookSignIn,
   footerText,
   footerLink,
   onSubmit,
@@ -69,14 +73,14 @@ const LoginPage: React.FC<LoginPageProps> = ({
         <Button type="submit" text={title === "Sign In" ? "Sign In" : "Sign Up"}></Button>
 
         <div className={classes.iconCollection}>
-          <button className={classes.icon} onClick={handleFacebookSignUp}>
+          <button className={classes.icon} onClick={handleFacebookSignUp || handleFacebookSignIn}>
             <img
               src={facebookLogo}
               alt="Facebook Logo"
             />
           </button>
 
-          <button className={classes.icon} onClick={handleGoogleSignUp}>
+          <button className={classes.icon} onClick={handleGoogleSignUp || handleGoogleSignIn}>
             <img
               src={googleLogo}
               alt="Google Logo"
