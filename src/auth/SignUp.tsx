@@ -1,25 +1,19 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from "../configs/firebaseConfig";
+import LoginPage from "../pages/LoginPage";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSignUp = async (e: React.FormEvent) => {
+  const handleSignUp = async (email: string, password: string, e: React.FormEvent) => {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       console.log("User account created successfully!");
-      setEmail("");
-      setPassword("");
       navigate("/");
     } catch (error) {
       console.error("Error while creating user account:", error);
-      setEmail("");
-      setPassword("");
     }
   };
 
@@ -49,46 +43,14 @@ const SignUp = () => {
 
   return (
     <>
-      <header className="header">
-        <span>Audio</span>
-        <p>It's a modular and designed to last</p>
-      </header>
-
-      <form>
-        <div>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-        <button type="submit" onClick={handleSignUp}>
-            Sign Up
-        </button>
-
-        <button onClick={handleGoogleSignUp}>Sign Up with Google</button>
-        <button onClick={handleFacebookSignUp}>Sign Up with Facebook</button>
-
-        <div className="footer">
-          <p>If you have an account?</p>
-          <Link to="/sign-in">Sign In here</Link>
-        </div>
-      </form>
+      <LoginPage
+        title="Sign Up"
+        handleGoogleSignUp={handleGoogleSignUp}
+        handleFacebookSignUp={handleFacebookSignUp}
+        footerText="If you have an account?"
+        footerLink="/sign-in"
+        onSubmit={handleSignUp}
+      />
     </>
   );
 }
