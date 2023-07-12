@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Button from "../components/Button";
+import classes from "./LoginPage.module.css"
 
 interface LoginPageProps {
   title: string;
@@ -30,10 +31,10 @@ const LoginPage: React.FC<LoginPageProps> = ({
   };
 
   return (
-    <>
-      <header className="header">
-        <span>Audio</span>
-        <p>It's a modular and designed to last</p>
+    <div className={classes.container}>
+      <header className={classes.header}>
+        <h1>Audio</h1>
+        <p>It's modular and designed to last</p>
       </header>
 
       <form onSubmit={handleFormSubmit}>
@@ -63,20 +64,20 @@ const LoginPage: React.FC<LoginPageProps> = ({
 
         <Button type="submit" text={title === "Sign In" ? "Sign In" : "Sign Up"}></Button>
 
-        {handleGoogleSignUp && (
-          <button onClick={handleGoogleSignUp}>Sign Up with Google</button>
-        )}
+        <button onClick={handleGoogleSignUp}>
+          Sign Up with Google
+        </button>
 
-        {handleFacebookSignUp && (
-          <button onClick={handleFacebookSignUp}>Sign Up with Facebook</button>
-        )}
-      </form>
+        <button onClick={handleFacebookSignUp}>
+          Sign Up with Facebook
+        </button>
 
-      <div className="footer">
+        <div className="footer">
         <p>{footerText}</p>
         <Link to={footerLink}>{title === "Sign In" ? "Sign Up here" : "Sign In here"}</Link>
       </div>
-    </>
+      </form>
+    </div>
   );
 };
 
