@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Button from "../components/Button";
-import classes from "./LoginPage.module.css"
+import classes from "./LoginPage.module.css";
+import facebookLogo from "../assets/facebookAuth.png";
+import googleLogo from "../assets/googleAuth.png"
 
 interface LoginPageProps {
   title: string;
@@ -37,8 +39,9 @@ const LoginPage: React.FC<LoginPageProps> = ({
         <p>It's modular and designed to last</p>
       </header>
 
-      <form onSubmit={handleFormSubmit}>
-        <div>
+      <form className={classes.form} onSubmit={handleFormSubmit}>
+        <div className={classes.field}>
+          <i className="material-symbols-outlined">mail</i>
           <input
             type="text"
             name="email"
@@ -49,7 +52,8 @@ const LoginPage: React.FC<LoginPageProps> = ({
           />
         </div>
 
-        <div>
+        <div className={classes.field}>
+          <i className="material-symbols-outlined">lock</i>
           <input
             type="password"
             name="password"
@@ -60,22 +64,29 @@ const LoginPage: React.FC<LoginPageProps> = ({
           />
         </div>
 
-        {title === "Sign In" && <a href="#">Forgot Password</a>}
+        {title === "Sign In" && <a href="#" className={classes.passwordForgotten}>Forgot Password</a>}
 
         <Button type="submit" text={title === "Sign In" ? "Sign In" : "Sign Up"}></Button>
 
-        <button onClick={handleGoogleSignUp}>
-          Sign Up with Google
-        </button>
+        <div className={classes.iconCollection}>
+          <button className={classes.icon} onClick={handleFacebookSignUp}>
+            <img
+              src={facebookLogo}
+              alt="Facebook Logo"
+            />
+          </button>
 
-        <button onClick={handleFacebookSignUp}>
-          Sign Up with Facebook
-        </button>
+          <button className={classes.icon} onClick={handleGoogleSignUp}>
+            <img
+              src={googleLogo}
+              alt="Google Logo"
+            />
+          </button>
+        </div>
 
-        <div className="footer">
-        <p>{footerText}</p>
-        <Link to={footerLink}>{title === "Sign In" ? "Sign Up here" : "Sign In here"}</Link>
-      </div>
+        <div className={classes.footer}>
+          <p className={classes.footerText}>{footerText} <Link to={footerLink} className={classes.signLink}>{title === "Sign In" ? "Sign Up here" : "Sign In here"}</Link></p>
+        </div>
       </form>
     </div>
   );
