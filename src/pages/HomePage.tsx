@@ -9,7 +9,7 @@ const HomePage: React.FC<HomePageProps> = ({ name }) => {
     return (
         <div className={classes.container}>  
             <div>
-                <p className={classes.welcome}>{name ? `Hi, ${name}!` : "Hi!"}</p>
+                <p className={classes.welcome}>{name ? `Hi, ${name}!` : "Hi, user!"}</p>
                 <p className={classes.text}>
                     What are you looking for <br /> today?
                 </p>

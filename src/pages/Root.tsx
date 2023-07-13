@@ -11,12 +11,7 @@ const Root = () => {
   useEffect(() => {
     const notLogged = onAuthStateChanged(auth, (user) => {
       if (user) {
-        let name = "";
-        if (user.displayName) {
-          name = user.displayName.split(" ")[0];
-        } else if (user.email) {
-          name = user.email.split("@")[0];
-        }
+        const name = user.displayName ? user.displayName.split(" ")[0] : "";
         setName(name); 
         navigate("/");
       } else {
