@@ -2,19 +2,20 @@ import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from "../configs/firebaseConfig";
 import LoginPage from "../pages/LoginPage";
+import Root from "../pages/Root";
 
 const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSignIn = async (email: string, password: string, e: React.FormEvent) => {
-      e.preventDefault();
-      try {
-          await signInWithEmailAndPassword(auth, email, password);
-          console.log("User logged in successfully!");
-          navigate("/");
-      } catch (error) {
-          console.error("Authentication error:", error);
-      }
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("User logged in successfully!");
+      navigate("/");
+    } catch (error) {
+        console.error("Authentication error:", error);
+    }
   };
 
   const handleGoogleSignIn = async (e: React.FormEvent) => {
@@ -22,10 +23,10 @@ const SignIn = () => {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      console.log("User account created successfully with Google!");
+      console.log("User logged in successfully with Google!");
       navigate("/");
     } catch (error) {
-      console.error("Error creating user account with Google:", error);
+      console.error("Authentication error:", error);
     }
   };
 
@@ -34,10 +35,10 @@ const SignIn = () => {
     const provider = new FacebookAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      console.log("User account created successfully with Facebook!");
+      console.log("User logged in successfully with Facebook!");
       navigate("/");
     } catch (error) {
-      console.error("Error creating user account with Facebook:", error);
+      console.error("Authentication error:", error);
     }
   }
 
@@ -51,6 +52,7 @@ const SignIn = () => {
         handleGoogleSignIn={handleGoogleSignIn}
         handleFacebookSignIn={handleFacebookSignIn}
       />
+      <Root />
     </>
   );
 };

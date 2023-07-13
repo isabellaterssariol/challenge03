@@ -1,9 +1,13 @@
-const HomePage = () => {
+interface HomePageProps {
+  name: string;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ name }) => {
     return (
         <>
-        <p>Hello World!</p>
+            {name ? `Hi, ${name}!` : "Hi!"}
         </>
-    )
-}
+    );
+};
 
 export default HomePage;

@@ -1,58 +1,30 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./pages/Root";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignIn from "./auth/SignIn";
 import SignUp from "./auth/SignUp";
 import { FirebaseAppProvider } from "reactfire";
 import { firebaseConfig } from "./configs/firebaseConfig";
-import HomePage from "./pages/HomePage";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      {
-         index: true,
-         element: <HomePage />,
-      },
-      {
-        path: "/sign-in",
-        element: <SignIn />,
-     },
-      {
-         path: "/sign-up",
-         element: <SignUp />,
-      },
-      {
-        // path: "/products",
-        // element: <AllProducts />,
-      },
-      {
-        // path: "/product",
-        // children: [
-         // {
-          //  path: ":productId",
-          //  element: <ProductPage />,
-          // },
-        //],
-      },
-      {
-        // path: "/shopping",
-        // element: <ShoppingCart />,
-      },
-    ],
-  },
-  {
-    // path: "*",
-    // element: <ErrorPage />,
-  }
-]);
+import Root from "./pages/Root";
 
 function App() {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routes>
+          <Route 
+            path="/" 
+            element={<Root />} 
+          />
+          <Route 
+            path="/sign-in" 
+            element={<SignIn />} 
+          />
+          <Route 
+            path="/sign-up" 
+            element={<SignUp />} 
+          />
+        </Routes>
+      </BrowserRouter>
     </FirebaseAppProvider>
   );
 }
