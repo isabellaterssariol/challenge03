@@ -7,7 +7,7 @@
 }
 
 .welcome {
-    color: #000000;
+    color: var(--color-default);
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
@@ -17,7 +17,7 @@
 }
 
 .text {
-    color: #000000;
+    color: var(--color-default);
     font-size: 1.625rem;
     font-style: normal;
     font-weight: 700;
