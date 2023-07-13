@@ -1,5 +1,5 @@
 import Search from "../components/Search";
-
+import classes from "./HomePage.module.css"
 
 interface HomePageProps {
   name: string;
@@ -7,13 +7,15 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ name }) => {
     return (
-        <>  
+        <div className={classes.container}>  
             <div>
-                <p>{name ? `Hi, ${name}!` : "Hi!"}</p>
-                <p>What are you looking for today?</p>
+                <p className={classes.welcome}>{name ? `Hi, ${name}!` : "Hi!"}</p>
+                <p className={classes.text}>
+                    What are you looking for <br /> today?
+                </p>
             </div>
             <Search />
-        </>
+        </div>
     );
 };
 
