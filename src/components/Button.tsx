@@ -7,11 +7,11 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ text, type = "button", onClick }) => {
-    return (
-      <button className={classes.button} type={type} onClick={onClick}>
-        {text}
-      </button>
-    );
+  return (
+    <button className={classes.button} type={type} onClick={onClick}>
+      {text}
+    </button>
+  );
 };
   
 export default Button;
