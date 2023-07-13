@@ -1,6 +1,13 @@
 import classes from "./Search.module.css"
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+    const navigate = useNavigate();
+
+    const handleInput = () => {
+        navigate("/search-page");
+    };
+
     return (
         <>
             <div className={classes.search}>
@@ -8,6 +15,7 @@ const Search = () => {
                 <input
                     type="text"
                     placeholder="Search headphone"
+                    onClick={handleInput}
                     className={classes.inputSearch}
                 />
             </div>

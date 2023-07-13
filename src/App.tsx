@@ -5,6 +5,7 @@ import SignUp from "./auth/SignUp";
 import { FirebaseAppProvider } from "reactfire";
 import { firebaseConfig } from "./configs/firebaseConfig";
 import Root from "./pages/Root";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           <Route 
             path="/sign-up" 
             element={<SignUp />} 
+          />
+          <Route 
+            path="/search-page" 
+            element={<SearchPage />} 
           />
         </Routes>
       </BrowserRouter>
