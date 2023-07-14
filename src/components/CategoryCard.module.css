@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    align-items: center;
+    width: 326px;
+    padding: 15px 24px;
+    border-radius: 10px;
+    font-family: "DM Sans", serif;
+    margin: 0.438rem 0.5rem;
+    background-color: var(--color-white);
+}
+
+.headset {
+    width: 117px;
+    height: 135px;
+    padding: 0.4rem 0rem 0.4rem 2.7rem;
+    align-items: center;
+    border-radius: 0.625rem;
+}
+
+.container h1 {
+    color: var(--color-default);
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px; 
+    letter-spacing: 0.2px;
+    margin-bottom: 24px;
+}
+
+.productLink {
+    color: var(--color-primary);
+    font-family: "DM Sans", serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.shopText {
+    margin-right: 8px;
+}
+
+
