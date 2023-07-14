@@ -7,17 +7,6 @@ import { Link } from "react-router-dom";
 interface ProductType {
     id: number;
     name: string;
-    price: string;
-    rating: number;
-    reviews: ReviewType[];
-}
-
-interface ReviewType {
-    user: string;
-    description: string;
-    rating: number;
-    date: string;
-    id: number;
 }
 
 interface CategoryCardProps {
