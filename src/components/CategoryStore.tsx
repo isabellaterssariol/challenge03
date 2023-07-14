@@ -3,6 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import axios from "axios";
 import CategoryCard from "./CategoryCard";
+import classes from "./CategoryStore.module.css"
 
 interface ProductType {
   id: number;
@@ -10,13 +11,10 @@ interface ProductType {
 }
 
 const apiUrl = "https://run.mocky.io/v3/8658d4c7-1a28-49a1-bfa8-801a536ba6c3";
-const categoryCheck = "Headphones";
 
 const CategoryStore = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryCheck
-  );
+  const [selectedCategory, setSelectedCategory] = useState("Headphones");
 
   useEffect(() => {
     const findProduct = async () => {
@@ -43,15 +41,15 @@ const CategoryStore = () => {
   }
 
   return (
-    <>
-      <div>
+    <div className={classes.container}>
+      <div className={classes.categories}>
         <button
-          className={selectedCategory === "Headphones" ? "active" : ""}
+          className={`${classes.categoryButton} ${selectedCategory === "Headphones" ? classes.active : ""}`}
           onClick={() => handleCategoryClick("Headphones")}>
           Headphones
         </button>
         <button
-          className={selectedCategory === "Headsets" ? "active" : ""}
+          className={`${classes.categoryButton} ${selectedCategory === "Headsets" ? classes.active : ""}`}
           onClick={() => handleCategoryClick("Headsets")}>
           Headsets
         </button>
@@ -70,7 +68,7 @@ const CategoryStore = () => {
           </SplideSlide>
         ))}
       </Splide>
-    </>
+    </div>
   );
 };
 
