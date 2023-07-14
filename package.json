@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
     "axios": "^1.4.0",
     "firebase": "^10.0.0",
     "react": "^18.2.0",
@@ -20,13 +22,17 @@
   "devDependencies": {
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "eslint": "^8.44.0",
+    "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.1",
-    "typescript": "^5.0.2",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "typescript": "^5.1.6",
     "vite": "^4.4.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/isabellaterssariol/challenge03.git",
+  "author": "Isabella Terssariol <126811841+isabellaterssariol@users.noreply.github.com>",
+  "license": "MIT"
 }

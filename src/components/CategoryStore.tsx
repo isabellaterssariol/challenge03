@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 import axios from "axios";
+import CategoryCard from "./CategoryCard";
 
 interface ProductType {
   id: number;
@@ -53,6 +56,20 @@ const CategoryStore = () => {
           Headsets
         </button>
       </div>
+      <Splide
+        options={{
+          perPage: 2,
+          perMove: 1,
+          arrows: false,
+          pagination: false,
+          gap: "370px",
+        }}>
+        {filteredProducts.map((product) => (
+          <SplideSlide key={product.id}>
+            <CategoryCard productId={product.id} />
+          </SplideSlide>
+        ))}
+      </Splide>
     </>
   );
 };
