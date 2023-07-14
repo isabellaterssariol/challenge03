@@ -1,17 +1,18 @@
 .container {
     display: flex;
     align-items: center;
-    width: 326px;
-    padding: 15px 24px;
-    border-radius: 10px;
+    width: 19.063rem;
+    height: 11.875rem;
+    padding: 0.938rem 1.5rem;
+    border-radius: 0.625rem;
     font-family: "DM Sans", serif;
-    margin: 0.438rem 0.5rem;
+    margin: 0.438rem 0rem;
     background-color: var(--color-white);
 }
 
 .headset {
-    width: 117px;
-    height: 135px;
+    width: 7.313rem;
+    height: 8.438rem;
     padding: 0.4rem 0rem 0.4rem 2.7rem;
     align-items: center;
     border-radius: 0.625rem;
@@ -20,17 +21,17 @@
 .container h1 {
     color: var(--color-default);
     font-family: "Montserrat", sans-serif;
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 700;
-    line-height: 30px; 
+    line-height: 1.875rem; 
     letter-spacing: 0.2px;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
 }
 
 .productLink {
     color: var(--color-primary);
     font-family: "DM Sans", serif;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0.2px;
     text-decoration: none;
@@ -39,7 +40,7 @@
 }
 
 .shopText {
-    margin-right: 8px;
+    margin-right: 0.5rem;
 }
 
 
