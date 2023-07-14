@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import headsetImage from "../assets/headsetImage.png";
-import classes from "./SearchCard.module.css"
-import starRating from "../assets/starFilled.png"
+import headsetImage2 from "../assets/headsetImage2.png";
+import classes from "./CategoryCard.module.css"
+import { Link } from "react-router-dom";
 
 interface ProductType {
     id: number;
@@ -20,13 +20,13 @@ interface ReviewType {
     id: number;
 }
 
-interface SearchCardProps {
+interface CategoryCardProps {
     productId: number;
 }
 
 const apiUrl = 'https://run.mocky.io/v3/8658d4c7-1a28-49a1-bfa8-801a536ba6c3';
 
-const SearchCard: React.FC<SearchCardProps> = ({ productId }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ productId }) => {
     const [product, setProduct] = useState<ProductType | null>(null);
     
     useEffect(() => {
@@ -51,28 +51,20 @@ const SearchCard: React.FC<SearchCardProps> = ({ productId }) => {
     
     return (
         <div className={classes.container}>
+            <div className={classes.infoText}>
+                <h1>{product.name}</h1>
+                <p>
+                    <Link to="/">Shop now</Link>
+                    <i className="material-symbols-outlined">arrow_forward</i>
+                </p>
+            </div>
             <img
-                src={headsetImage}
+                src={headsetImage2}
                 alt="Headset"
                 className={classes.headset}
             />
-            <div className={classes.infoText}>
-                <h1>{product.name}</h1>
-                <p className={classes.price}>
-                    {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
-                </p>
-                <div className={classes.reviews}>
-                    <img
-                        src={starRating}
-                        alt="Star"
-                        className={classes.star}
-                    /> 
-                    <p className={classes.rating}>{product.rating}</p>
-                    <p>{`${product.reviews.length} Reviews`}</p>
-                </div>    
-            </div>
         </div>
     );
 };
 
-export default SearchCard;
+export default CategoryCard;
