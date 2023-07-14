@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    width: 145px;
+    padding: 20px 15px;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0px 4px 30px 0px rgba(104, 117, 130, 0.05);
+    font-family: "DM Sans", serif;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.headset {
+    width: 110px;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 17px;
+}
+
+.infoText {
+    margin-left: 2px;
+}
+
+.infoText h1 {
+    outline: none;
+    color: var(--color-default);
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin-top: 10px;
+}
+
+.infoText p {
+    color: var(--color-default);
+    font-family: "DM Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    margin-top: 6px;
+}
+
+.reviews {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.star {
+    width: 11px;
+    height: 11px;
+}
+
+.reviews p {
+    color: var(--color-default);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.reviews i {
+    width: 8px;
+    height: 8px;
+    margin: 0px 0px 18px 44px;
+}
+
+.rating {
+    margin: 0rem 0.625rem 0rem 0.25rem;
+}
