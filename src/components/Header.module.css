@@ -19,11 +19,11 @@
     letter-spacing: 0.2px;
 }
 
-i {
+.homeButton i, .shoppingButton i {
     width: 1.25rem;
     height: 1.25rem;
     flex-shrink: 0;
-    color: var(--color-default);;
+    color: var(--color-default);
 }
 
 

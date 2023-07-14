@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    align-items: center;
+    border-radius: 0.938rem;
+    font-family: "DM Sans", serif;
+    margin: 0.438rem 0rem;
+}
+  
+.headset {
+    width: 5.313rem;
+    height: 5.313rem;
+    padding: 0.625rem 0.75rem 0.625rem 0rem;
+    align-items: center;
+    border-radius: 0.625rem;
+}
+
+.container h1 {
+    color: var(--color-default);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.price {
+    color: var(--color-default);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    margin: 0.188rem 0rem 0.625rem 0rem;
+}
+
+.reviews {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    width: 1rem;
+    height: 1rem;
+}
+
+.reviews p {
+    color: var(--color-default);
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.rating {
+    margin: 0rem 0.625rem 0rem 0.25rem;
+}
+
+
+
+
+
+
+  

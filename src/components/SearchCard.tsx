@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import headsetImage from "../assets/headsetImage.png";
 import classes from "./SearchCard.module.css"
+import starRating from "../assets/starFilled.png"
 
 interface ProductType {
     id: number;
@@ -53,11 +54,23 @@ const SearchCard: React.FC<SearchCardProps> = ({ productId }) => {
             <img
                 src={headsetImage}
                 alt="Headset"
+                className={classes.headset}
             />
-            <h1>{product.name}</h1>
-            <p>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
-            <p><i className="material-symbols-outlined">star</i> {product.rating}</p>
-            <p>{`${product.reviews.length} Reviews`}</p>
+            <div className={classes.infoText}>
+                <h1>{product.name}</h1>
+                <p className={classes.price}>
+                    {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
+                </p>
+                <div className={classes.reviews}>
+                    <img
+                        src={starRating}
+                        alt="Star"
+                        className={classes.star}
+                    /> 
+                    <p className={classes.rating}>{product.rating}</p>
+                    <p>{`${product.reviews.length} Reviews`}</p>
+                </div>    
+            </div>
         </div>
     );
 };
