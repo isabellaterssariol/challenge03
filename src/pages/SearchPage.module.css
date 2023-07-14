@@ -1,0 +1,14 @@
+.container {
+    padding: 1.563rem;
+}
+
+.text {
+    color: var(--color-default);
+    font-family: "DM Sans", serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    margin: 1.875rem 0rem 0rem 0.6rem;
+}
+
