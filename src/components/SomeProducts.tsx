@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import classes from "./SomeProducts.module.css"
 
 interface SomeProductsProps {
     title: string;
@@ -9,19 +10,19 @@ interface SomeProductsProps {
 
 const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
     return (
-        <>
-            <div>
-                <p>{title}
-                <Link to="/">See all</Link>
-                </p>
+        <div className={classes.container}>
+            <div className={classes.infoText}>
+                <p className={classes.title}>{title}</p>
+                <p><Link to="/" className={classes.link}>See All</Link></p>
             </div>
             <div>
                 <Splide
                     options={{
-                    perPage: 2,
+                    perPage: 3,
                     perMove: 1,
                     arrows: false,
                     pagination: false,
+                    gap: "173px",
                     }}>
                     <SplideSlide>
                         <ProductCard productId={4}/> 
@@ -50,7 +51,7 @@ const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
                 </Splide>
             </div>
             
-        </>
+        </div>
     )
 }
 

@@ -1,3 +1,4 @@
+import SomeProducts from "../components/SomeProducts";
 import CategoryStore from "../components/CategoryStore";
 import Search from "../components/Search";
 import classes from "./HomePage.module.css"
@@ -17,6 +18,7 @@ const HomePage: React.FC<HomePageProps> = ({ name }) => {
             </div>
             <Search />
             <CategoryStore />
+            <SomeProducts title={"Featured Products"}/>
         </div>
     );
 };

@@ -60,7 +60,7 @@ const CategoryStore = () => {
           perMove: 1,
           arrows: false,
           pagination: false,
-          gap: "21.875rem",
+          gap: "22.6rem",
         }}>
         {filteredProducts.map((product) => (
           <SplideSlide key={product.id}>
