@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
+import classes from "./AllProducts.module.css"
 
 interface Product {
   id: number;
@@ -20,12 +21,11 @@ const AllProducts = () => {
                 console.error("Error in finding products:", error);
             }
         };
-  
         findProducts();
     }, []);
   
     return (
-      <div>
+      <div className={classes.container}>
         {products.map((product) => (
           <ProductCard productId={product.id} showReviews={true}/>
         ))}
