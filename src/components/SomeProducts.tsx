@@ -13,7 +13,7 @@ const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
         <div className={classes.container}>
             <div className={classes.infoText}>
                 <p className={classes.title}>{title}</p>
-                <p><Link to="/" className={classes.link}>See All</Link></p>
+                <p><Link to="/all-products" className={classes.link}>See All</Link></p>
             </div>
             <div>
                 <Splide

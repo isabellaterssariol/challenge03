@@ -6,6 +6,7 @@ import { FirebaseAppProvider } from "reactfire";
 import { firebaseConfig } from "./configs/firebaseConfig";
 import Root from "./pages/Root";
 import SearchPage from "./pages/SearchPage";
+import AllProductsPage from "./pages/AllProductsPage";
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
           <Route 
             path="/search-page" 
             element={<SearchPage />} 
+          />
+          <Route 
+            path="/all-products" 
+            element={<AllProductsPage />} 
           />
         </Routes>
       </BrowserRouter>
