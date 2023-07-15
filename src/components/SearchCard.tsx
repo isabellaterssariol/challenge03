@@ -69,6 +69,7 @@ const SearchCard: React.FC<SearchCardProps> = ({ productId }) => {
                     /> 
                     <p className={classes.rating}>{product.rating}</p>
                     <p>{`${product.reviews.length} Reviews`}</p>
+                    <i className="material-symbols-outlined">more_vert</i>
                 </div>    
             </div>
         </div>
