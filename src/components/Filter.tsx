@@ -77,7 +77,7 @@ const Filter: React.FC<FilterProps> = ({
                 </div>    
 
                 <div className={classes.filter}>
-                    <h2>Sort by</h2>
+                    <h2>Sort By</h2>
                     <label className={`${classes.labelFilter} ${selectedFilter === "popularity" ? classes.active : ""}`}>
                         <input
                             type="radio"

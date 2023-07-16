@@ -22,7 +22,7 @@ const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
                     perMove: 1,
                     arrows: false,
                     pagination: false,
-                    gap: "173px",
+                    gap: "165px",
                     }}>
                     <SplideSlide>
                         <ProductCard productId={4}/> 
