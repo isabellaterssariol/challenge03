@@ -7,6 +7,7 @@ import { firebaseConfig } from "./configs/firebaseConfig";
 import Root from "./pages/Root";
 import SearchPage from "./pages/SearchPage";
 import AllProductsPage from "./pages/AllProductsPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
           <Route 
             path="/all-products" 
             element={<AllProductsPage />} 
+          />
+          <Route
+            path="/product/:productId"
+            element={<ProductPage />}
           />
         </Routes>
       </BrowserRouter>
