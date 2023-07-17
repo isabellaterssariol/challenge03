@@ -114,12 +114,13 @@ const ProductPage = () => {
       )}
 
       {selectedOption === "features" && (
-        <div>
+        <div className={classes.features}>
           <p>{product.description}</p>
         </div>
       )}
-
-      <Button text={"Add To Cart"}/>
+      <div className ={classes.button}>
+        <Button text={"Add To Cart"}/>
+      </div>
     </div>
   );
 };
