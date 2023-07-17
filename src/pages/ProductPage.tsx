@@ -22,7 +22,12 @@ const apiUrl = 'https://run.mocky.io/v3/8658d4c7-1a28-49a1-bfa8-801a536ba6c3';
 
 const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();
+  const [selectedOption, setSelectedOption] = useState("overview");
   const [product, setProduct] = useState<ProductType | null>(null);
+
+  const handleOptionChange = (option: string) => {
+    setSelectedOption(option);
+  };
 
   useEffect(() => {
     const findDataProduct = async () => {
@@ -48,7 +53,21 @@ const ProductPage = () => {
     <>
       <Header />
       <p>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
-      <h2>{product.name}</h2>
+      <h1>{product.name}</h1>
+
+      <div>
+        <button
+          onClick={() => handleOptionChange("overview")}
+          className={selectedOption === "overview" ? "active" : ""}>
+          Overview
+        </button>
+
+        <button
+          onClick={() => handleOptionChange("features")}
+          className={selectedOption === "features" ? "active" : ""}>
+          Features
+        </button>
+      </div>
     </>
   );
 };
