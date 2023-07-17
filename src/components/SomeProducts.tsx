@@ -25,7 +25,7 @@ const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
                     gap: "165px",
                     }}>
                     <SplideSlide>
-                        <ProductCard productId={4}/> 
+                        <ProductCard productId={17}/> 
                     </SplideSlide>
                     <SplideSlide>
                         <ProductCard productId={6}/> 

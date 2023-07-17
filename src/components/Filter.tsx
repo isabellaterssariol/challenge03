@@ -25,7 +25,7 @@ const Filter: React.FC<FilterProps> = ({
     closeFilter, }) => {
 
   return (
-    <div>
+    <div className={classes.container}>
         <button onClick={openFilter} className={classes.filterButton}>
             <i className="material-symbols-outlined">instant_mix</i>
             Filter

@@ -1,3 +1,8 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
 .filterButton {
     display: flex;
     width: 88vw;
@@ -125,7 +130,6 @@
 input[type="radio"] {
     display: none; 
 }
-  
   
 
 
