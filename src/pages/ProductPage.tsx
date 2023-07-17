@@ -5,6 +5,8 @@ import axios from "axios";
 import headsetImage from "../assets/headsetImage3.png";
 import userImage from "../assets/userImage.png";
 import classes from './ProductPage.module.css';
+import Button from "../components/Button";
+import SomeProducts from "../components/SomeProducts";
 
 interface ProductType {
   id: number;
@@ -64,45 +66,50 @@ const ProductPage = () => {
   }
 
   return (
-    <>
+    <div className={classes.container}>
       <Header />
-      <p>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
-      <h1>{product.name}</h1>
+      <p className={classes.price}>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
+      <h1 className={classes.title}>{product.name}</h1>
 
-      <div>
+      <div className={classes.optionsButton}>
         <button
           onClick={() => handleOptionChange("overview")}
-          className={selectedOption === "overview" ? "active" : ""}>
+          className={`${classes.options} ${selectedOption === "overview" ? classes.active : ""}`}>
           Overview
         </button>
 
         <button
           onClick={() => handleOptionChange("features")}
-          className={selectedOption === "features" ? "active" : ""}>
+          className={`${classes.options} ${selectedOption === "features" ? classes.active : ""}`}>
           Features
         </button>
       </div>
 
       {selectedOption=== "overview" && (
-        <div>
+        <div className={classes.overview}>
           <img
             src={headsetImage}
             alt="Headset"
+            className={classes.imageHeadset}
           />
-          <p>{`Reviews (${product.reviews.length})`}</p>
+          <p className={classes.reviewsLength}>{`Reviews (${product.reviews.length})`}</p>
           {product.reviews.map((review) => (
-            <div key={review.id}>
+            <div key={review.id} className={classes.review}>
               <img
                 src={userImage}
                 alt="Headset"
+                className={classes.userImage}
               />
-              <h3>{review.user}</h3>
-              <div className={classes.rating}>
+              <div className={classes.userInfo}> 
+                <h3>{review.user}</h3>
                 {renderStars(review.rating)}
               </div>
-              <p>{review.description}</p>
+              <p className={classes.description}>{review.description}</p>
             </div>
           ))}
+          <div className={classes.someProducts}>
+            <SomeProducts title={"Another Product"}/>
+          </div>
         </div>
       )}
 
@@ -111,7 +118,9 @@ const ProductPage = () => {
           <p>{product.description}</p>
         </div>
       )}
-    </>
+
+      <Button text={"Add To Cart"}/>
+    </div>
   );
 };
 

@@ -1,20 +1,131 @@
+.container {
+    background-color: var(--color-white);
+    font-family: "DM Sans", serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    margin: 1.25rem 0rem 0.313rem 1.375rem;
+}
+
+.title {
+    color: var(--color-default);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+    letter-spacing: 0.2px;
+    margin: 0rem 1.375rem 0.313rem 1.375rem;
+}
+
+.optionsButton {
+    margin: 0.875rem 0.875rem 0.313rem 0.875rem;
+}
+
+.options {
+    color: var(--color-default);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    border: none;
+    background-color: var(--color-white);
+    display: inline-block;
+    position: relative;
+    padding: 0rem 0.625rem;
+    margin-bottom: 1.875rem;
+}
+
+.options.active::after {
+    content: "";
+    position: absolute;
+    bottom: -0.625rem;
+    left: 1.75rem;
+    width: 30%; 
+    height: 0.188rem;
+    border-radius: 0.625rem;
+    background-color: var(--color-primary);
+}
+
+.overview {
+    margin-bottom: 2.5rem;
+}
+
+.imageHeadset {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 17.813rem;
+    border-radius: 0.625rem;
+    box-shadow: 0rem 0.25rem 1.875rem 0rem rgba(104, 117, 130, 0.05);
+}
+
+.reviewsLength {
+    color: var(--color-default);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    padding: 1.375rem;
+    margin-bottom: 1rem;
+}
+
+.review {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0rem 1.375rem 0.313rem 1.375rem;
+}
+
+.userImage {
+    width: 2.5rem; 
+    height: 2.5rem;
+    margin-right: 0.625rem; 
+}
+
+.userInfo h3 {
+    color: var(--color-default);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    margin-bottom: 0.313rem;
+}
+
+.description {
+    color: var(--color-default);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    padding: 0.313rem 0rem 0.875rem 3.125rem;
+}
+
 .starOutlined {
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     background-image: url('../assets/starOutlined.png');
     background-repeat: no-repeat;
+    padding-right: 0.188rem;
 }
   
 .starFilled {
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     background-image: url('../assets/starFilled.png');
     background-repeat: no-repeat;
+    padding-right: 0.188rem;
 }
-  
-.rating {
-    margin-top: 10px;
+
+.someProducts {
+    margin-top: 3.125rem;
 }
-  
