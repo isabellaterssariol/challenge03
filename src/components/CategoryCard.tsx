@@ -42,12 +42,12 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ productId }) => {
         <div className={classes.container}>
             <div className={classes.infoText}>
                 <h1>{product.name}</h1>
-                <Link to="/" className={classes.productLink}>
+                <Link to={`/product/${product.id}`} className={classes.productLink}>
                     <p className={classes.shopText}>Shop now</p>
                     <i className="material-symbols-outlined">arrow_forward</i>
                 </Link>
             </div>
-            <Link to="/">
+            <Link to={`/product/${product.id}`}>
                 <img
                 src={headsetImage2}
                 alt="Headset"

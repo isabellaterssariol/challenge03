@@ -3,6 +3,7 @@ import axios from "axios";
 import headsetImage from "../assets/headsetImage.png";
 import classes from "./SearchCard.module.css"
 import starRating from "../assets/starFilled.png"
+import { Link } from "react-router-dom";
 
 interface ProductType {
     id: number;
@@ -51,27 +52,29 @@ const SearchCard: React.FC<SearchCardProps> = ({ productId }) => {
     
     return (
         <div className={classes.container}>
-            <img
-                src={headsetImage}
-                alt="Headset"
-                className={classes.headset}
-            />
-            <div className={classes.infoText}>
-                <h1>{product.name}</h1>
-                <p className={classes.price}>
-                    {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
-                </p>
-                <div className={classes.reviews}>
-                    <img
-                        src={starRating}
-                        alt="Star"
-                        className={classes.star}
-                    /> 
-                    <p className={classes.rating}>{product.rating}</p>
-                    <p>{`${product.reviews.length} Reviews`}</p>
-                    <i className="material-symbols-outlined">more_vert</i>
-                </div>    
-            </div>
+            <Link to={`/product/${product.id}`} className={classes.link}>
+                <img
+                        src={headsetImage}
+                        alt="Headset"
+                        className={classes.headset}
+                />
+                <div className={classes.infoText}>
+                    <h1>{product.name}</h1>
+                    <p className={classes.price}>
+                        {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
+                    </p>
+                    <div className={classes.reviews}>
+                        <img
+                            src={starRating}
+                            alt="Star"
+                            className={classes.star}
+                        /> 
+                        <p className={classes.rating}>{product.rating}</p>
+                        <p>{`${product.reviews.length} Reviews`}</p>
+                        <i className="material-symbols-outlined">more_vert</i>
+                    </div>    
+                </div>
+            </Link>    
         </div>
     );
 };

@@ -53,7 +53,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ productId, showReviews }) => 
     
     return (
         <div className={classes.container}>
-            <Link to="/" className={classes.link}>
+            <Link to={`/product/${product.id}`} className={classes.link}>
                 <img
                     src={headsetImage2}
                     alt="Headset"
