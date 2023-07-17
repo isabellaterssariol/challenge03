@@ -1,0 +1,20 @@
+.starOutlined {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../assets/starOutlined.png');
+    background-repeat: no-repeat;
+}
+  
+.starFilled {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../assets/starFilled.png');
+    background-repeat: no-repeat;
+}
+  
+.rating {
+    margin-top: 10px;
+}
+  

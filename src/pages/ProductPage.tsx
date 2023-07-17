@@ -2,6 +2,9 @@ import Header from "../components/Header";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import headsetImage from "../assets/headsetImage3.png";
+import userImage from "../assets/userImage.png";
+import classes from './ProductPage.module.css';
 
 interface ProductType {
   id: number;
@@ -27,6 +30,17 @@ const ProductPage = () => {
 
   const handleOptionChange = (option: string) => {
     setSelectedOption(option);
+  };
+
+  const renderStars = (rating: number) => {
+    const stars = [];
+
+    for (let i = 1; i <= 5; i++) {
+      const starClass = i <= rating ? classes.starFilled : classes.starOutlined;
+      stars.push(<div key={i} className={starClass} />);
+    }
+
+    return stars;
   };
 
   useEffect(() => {
@@ -68,6 +82,35 @@ const ProductPage = () => {
           Features
         </button>
       </div>
+
+      {selectedOption=== "overview" && (
+        <div>
+          <img
+            src={headsetImage}
+            alt="Headset"
+          />
+          <p>{`Reviews (${product.reviews.length})`}</p>
+          {product.reviews.map((review) => (
+            <div key={review.id}>
+              <img
+                src={userImage}
+                alt="Headset"
+              />
+              <h3>{review.user}</h3>
+              <div className={classes.rating}>
+                {renderStars(review.rating)}
+              </div>
+              <p>{review.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {selectedOption === "features" && (
+        <div>
+          <p>{product.description}</p>
+        </div>
+      )}
     </>
   );
 };
