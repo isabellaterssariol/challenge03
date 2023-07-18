@@ -3,7 +3,7 @@ import { useCartContext } from "../components/CartContext";
 import SearchCard from "../components/SearchCard";
 
 const CartPage = () => {
-  const { cartProducts, addToCart, removeFromCart } = useCartContext();
+  const { cartProducts, addToCart, removeFromCart, removeProduct } = useCartContext();
 
   const handleTrashChange = () => {
     console.log("Hello World!");
@@ -26,6 +26,10 @@ const CartPage = () => {
     removeFromCart(productId);
   };
 
+  const removeProductFromCart = (productId: number) => {
+    removeProduct(productId);
+  };
+
   return (
     <div>
       <Header showText={true} text={"Shopping Cart"} showTrash={true} onClick={handleTrashChange}/>
@@ -42,6 +46,7 @@ const CartPage = () => {
               quantity={quantityProduct[productId]} 
               addOne={addOneProduct}
               removeOne={removeOneProduct}
+              removeProduct={removeProductFromCart}
               />
             </div>
           ))}
