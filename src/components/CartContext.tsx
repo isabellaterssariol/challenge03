@@ -9,6 +9,7 @@ interface CartContextProps {
     addToCart: (product: ProductType) => void;
     removeFromCart: (productId: number) => void;
     removeProduct: (productId: number) => void;
+    removeAll: () => void;
 }
 
 const CartContext = createContext<CartContextProps>({
@@ -16,6 +17,7 @@ const CartContext = createContext<CartContextProps>({
     addToCart: () => {},
     removeFromCart: () => {},
     removeProduct: () => {},
+    removeAll: () => {},
 });
 
 const useCartContext = () => {
@@ -42,9 +44,13 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     const removeProduct = (productId: number) => {
         setCartProducts(cartProducts.filter((product) => product.id !== productId));
     };
+
+    const removeAll = () => {
+        setCartProducts([]);
+    };
     
     return (
-        <CartContext.Provider value={{ cartProducts, addToCart, removeFromCart, removeProduct }}>
+        <CartContext.Provider value={{ cartProducts, addToCart, removeFromCart, removeProduct, removeAll }}>
             {children}
         </CartContext.Provider>
     );

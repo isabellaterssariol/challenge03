@@ -3,10 +3,10 @@ import { useCartContext } from "../components/CartContext";
 import SearchCard from "../components/SearchCard";
 
 const CartPage = () => {
-  const { cartProducts, addToCart, removeFromCart, removeProduct } = useCartContext();
+  const { cartProducts, addToCart, removeFromCart, removeProduct, removeAll } = useCartContext();
 
-  const handleTrashChange = () => {
-    console.log("Hello World!");
+  const handleTrashClick = () => {
+    removeAll();
   };
 
   const quantityProduct: { [key: number]: number } = {};
@@ -32,7 +32,7 @@ const CartPage = () => {
 
   return (
     <div>
-      <Header showText={true} text={"Shopping Cart"} showTrash={true} onClick={handleTrashChange}/>
+      <Header showText={true} text={"Shopping Cart"} showTrash={true} onClick={handleTrashClick}/>
 
       {cartProducts.length === 0 ? (
         <p>Empty shopping cart.</p>
