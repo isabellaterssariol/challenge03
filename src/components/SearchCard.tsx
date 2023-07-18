@@ -23,11 +23,14 @@ interface ReviewType {
 
 interface SearchCardProps {
     productId: number;
+    showReviews?: boolean;
+    showQuantity?: boolean;
+    quantity?: number;
 }
 
 const apiUrl = 'https://run.mocky.io/v3/8658d4c7-1a28-49a1-bfa8-801a536ba6c3';
 
-const SearchCard: React.FC<SearchCardProps> = ({ productId }) => {
+const SearchCard: React.FC<SearchCardProps> = ({ productId, showReviews, showQuantity, quantity }) => {
     const [product, setProduct] = useState<ProductType | null>(null);
     
     useEffect(() => {
@@ -63,16 +66,25 @@ const SearchCard: React.FC<SearchCardProps> = ({ productId }) => {
                     <p className={classes.price}>
                         {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
                     </p>
-                    <div className={classes.reviews}>
-                        <img
-                            src={starRating}
-                            alt="Star"
-                            className={classes.star}
-                        /> 
-                        <p className={classes.rating}>{product.rating}</p>
-                        <p>{`${product.reviews.length} Reviews`}</p>
-                        <i className="material-symbols-outlined">more_vert</i>
-                    </div>    
+                
+                    {showReviews && (
+                        <div className={classes.reviews}>
+                            <img
+                                src={starRating}
+                                alt="Star"
+                                className={classes.star}
+                            /> 
+                            <p className={classes.rating}>{product.rating}</p>
+                            <p>{`${product.reviews.length} Reviews`}</p>
+                            <i className="material-symbols-outlined">more_vert</i>
+                        </div>
+                    )}
+
+                    {showQuantity && (
+                        <div>
+                            <p>Quantuty: {quantity}</p> 
+                        </div>
+                    )}   
                 </div>
             </Link>    
         </div>

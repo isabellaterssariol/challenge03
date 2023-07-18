@@ -9,6 +9,15 @@ const CartPage = () => {
     console.log("Hello World!");
   };
 
+  const quantityProduct: { [key: number]: number } = {};
+  for (const product of cartProducts) {
+    quantityProduct[product.id] = (quantityProduct[product.id] || 0) + 1;
+  }
+
+  const exclusiveId = Array.from(
+    new Set(cartProducts.map((product) => product.id))
+  );
+
   return (
     <div>
       <Header showText={true} text={"Shopping Cart"} showTrash={true} onClick={handleTrashChange}/>
@@ -17,8 +26,13 @@ const CartPage = () => {
         <p>Empty shopping cart.</p>
       ) : (
         <div>
-          {cartProducts.map((product) => (
-            <SearchCard key={product.id} productId={product.id} />
+          {exclusiveId.map((productId) => (
+            <div key={productId}>
+              <SearchCard 
+              productId={productId} 
+              showQuantity={true}
+              quantity={quantityProduct[productId]} />
+            </div>
           ))}
         </div>
       )}
