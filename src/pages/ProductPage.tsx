@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import headsetImage from "../assets/headsetImage3.png";
@@ -29,6 +29,7 @@ const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const [selectedOption, setSelectedOption] = useState("overview");
   const [product, setProduct] = useState<ProductType | null>(null);
+  const navigate = useNavigate();
 
   const handleOptionChange = (option: string) => {
     setSelectedOption(option);
@@ -65,9 +66,13 @@ const ProductPage = () => {
     return <div>Loading...</div>;
   }
 
+  const handleAddToCart = () => {
+    navigate('/cart'); 
+  };
+
   return (
     <div className={classes.container}>
-      <Header />
+      <Header showCart={true}/>
       <p className={classes.price}>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
       <h1 className={classes.title}>{product.name}</h1>
 
@@ -119,7 +124,7 @@ const ProductPage = () => {
         </div>
       )}
       <div className ={classes.button}>
-        <Button text={"Add To Cart"}/>
+        <Button text={"Add To Cart"} onClick={handleAddToCart}/>
       </div>
     </div>
   );
