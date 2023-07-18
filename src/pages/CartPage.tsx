@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import { useCartContext } from "../components/CartContext";
 import SearchCard from "../components/SearchCard";
 import Button from "../components/Button";
+import classes from "./CartPage.module.css";
 
 const CartPage = () => {
   const { cartProducts, addToCart, removeFromCart, removeProduct, removeAll } = useCartContext();
@@ -45,7 +46,7 @@ const CartPage = () => {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <Header showText={true} text={"Shopping Cart"} showTrash={true} onClick={handleTrashClick}/>
 
       {cartProducts.length === 0 ? (
@@ -67,9 +68,13 @@ const CartPage = () => {
         </div>
       )}
 
-    <p>{`Total ${totalItems()} item(s)`}</p>
-    <p>{`USD ${totalPrice()}`}</p>
-    <Button text={"Proceed to Checkout"}/>
+      <div className={classes.footer}>
+        <div className={classes.total}>      
+          <p className={classes.totalItems}>{`Total ${totalItems()} Item(s)`}</p>
+          <p className={classes.totalPrice}>{`USD ${totalPrice()}`}</p>
+        </div>
+        <Button text={"Proceed to Checkout"} showArrow={true}/>
+      </div> 
     </div>
   );
 };

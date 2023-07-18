@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "DM Sans", serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: 2rem;
+}
+
+.total {
+    display: flex;
+    margin-bottom: 1.25rem;
+}
+
+.totalItems {
+    margin-right: auto;
+    color: var(--colors-default, #000);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    opacity: 0.6;
+}
+
+.totalPrice {
+    color: var(--colors-default, #000);
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem; 
+    letter-spacing: 0.2px;
+}
