@@ -2,6 +2,7 @@ import { createContext, useState, useContext } from "react";
 
 interface ProductType {
     id: number;
+    price: string;
 }
 
 interface CartContextProps {

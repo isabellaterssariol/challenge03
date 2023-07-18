@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import { useCartContext } from "../components/CartContext";
 import SearchCard from "../components/SearchCard";
+import Button from "../components/Button";
 
 const CartPage = () => {
   const { cartProducts, addToCart, removeFromCart, removeProduct, removeAll } = useCartContext();
@@ -19,7 +20,10 @@ const CartPage = () => {
   );
 
   const addOneProduct = (productId: number) => {
-    addToCart({ id: productId }); 
+    const productAdd = cartProducts.find((product) => product.id === productId);
+    if (productAdd) {
+      addToCart(productAdd);
+    }
   };
 
   const removeOneProduct = (productId: number) => {
@@ -28,6 +32,16 @@ const CartPage = () => {
 
   const removeProductFromCart = (productId: number) => {
     removeProduct(productId);
+  };
+
+  const totalItems = () => {
+    return cartProducts.length;
+  };
+
+  const totalPrice = () => {
+    return cartProducts.reduce((total, product) => {
+      return total + Math.round(parseFloat(product.price.replace("$", "")));
+    }, 0);
   };
 
   return (
@@ -52,6 +66,10 @@ const CartPage = () => {
           ))}
         </div>
       )}
+
+    <p>{`Total ${totalItems()} item(s)`}</p>
+    <p>{`USD ${totalPrice()}`}</p>
+    <Button text={"Proceed to Checkout"}/>
     </div>
   );
 };
