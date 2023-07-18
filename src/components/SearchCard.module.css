@@ -3,7 +3,7 @@
     align-items: center;
     border-radius: 0.938rem;
     font-family: "DM Sans", serif;
-    margin: 0.438rem 1.8rem;
+    margin: 0.8rem 1.8rem;
     min-width: 90vw;
 }
 
@@ -11,6 +11,11 @@
     text-decoration: none;
     display: flex;
     margin-top: 0.5rem;
+}
+
+.infoText {
+    display: flex;
+    flex-direction: column;
 }
 
 .headset {
@@ -37,7 +42,7 @@
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.2px;
-    margin: 0.188rem 0rem 0.625rem 0rem;
+    margin: 0.188rem 0rem 0.5rem 0rem;
 }
 
 .reviews {
@@ -68,3 +73,48 @@
 .rating {
     margin: 0rem 0.625rem 0rem 0.25rem;
 } 
+
+.quantity {
+    display: flex;
+    align-items: center;
+    min-width: 62vw;
+    justify-content: flex-end;
+}
+
+.text {
+    color: var(--color-default);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin-right: 1.25rem;
+}
+
+.button {
+    border: 1px solid var(--color-grey);
+    background-color: var(--color-white);
+    border-radius: 0.625rem;
+    width: 1.875rem;
+    height: 1.875rem;
+    margin-right: 1.25rem;
+}
+
+.button i {
+    color: var(--color-default);
+}
+
+.buttonDisabled {
+    border: 1px solid var(--color-grey);
+    background-color: var(--color-white);
+    border-radius: 0.625rem;
+    width: 1.875rem;
+    height: 1.875rem;
+    margin-right: 1.25rem;
+}
+
+.buttonTrash {
+    border: none;
+    background-color: var(--color-white);
+    color: var(--color-default);
+    opacity: 0.5;
+    margin-left: auto;
+}

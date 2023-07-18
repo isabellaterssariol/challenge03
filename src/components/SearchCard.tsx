@@ -64,44 +64,56 @@ const SearchCard: React.FC<SearchCardProps> = ({ productId, showReviews, showQua
                         alt="Headset"
                         className={classes.headset}
                 />
+            </Link>    
                 <div className={classes.infoText}>
-                    <h1>{product.name}</h1>
-                    <p className={classes.price}>
-                        {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
-                    </p>
-                
-                    {showReviews && (
-                        <div className={classes.reviews}>
-                            <img
-                                src={starRating}
-                                alt="Star"
-                                className={classes.star}
-                            /> 
-                            <p className={classes.rating}>{product.rating}</p>
-                            <p>{`${product.reviews.length} Reviews`}</p>
-                            <i className="material-symbols-outlined">more_vert</i>
-                        </div>
-                    )}
-                </div>    
-            </Link>
-                    {showQuantity && (
+                    <Link to={`/product/${product.id}`} className={classes.link}>
                         <div>
+                            <h1>{product.name}</h1>
+                            <p className={classes.price}>
+                                {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
+                            </p>
+                        </div>    
+                    </Link>
+
+                    {showReviews && (
+                        <Link to={`/product/${product.id}`} className={classes.link}>
+                            <div className={classes.reviews}>
+                                <img
+                                    src={starRating}
+                                     alt="Star"
+                                    className={classes.star}
+                                /> 
+                                <p className={classes.rating}>{product.rating}</p>
+                                <p>{`${product.reviews.length} Reviews`}</p>
+                                <i className="material-symbols-outlined">more_vert</i>
+                            </div>
+                        </Link>
+                    )}
+                    
+                    {showQuantity && (
+                        <div className={classes.quantity}>
                             {quantity && quantity > 1 ? 
-                            <button onClick={() => removeOne && removeOne(product.id)}>-</button> : <button disabled>
-                                -
+                            <button className={classes.button} onClick={() => removeOne && removeOne(product.id)}>
+                                <i className="material-symbols-outlined">remove</i>
+                            </button> :
+                            <button className={classes.buttonDisabled} disabled>
+                                <i className="material-symbols-outlined">remove</i>
                             </button>}
-                            <p>{quantity}</p>
+
+                            <p className={classes.text}>{quantity}</p>
+
                             {quantity && 
-                            <button onClick={() => addOne && addOne(product.id)}>
-                                +
+                            <button className={classes.button} onClick={() => addOne && addOne(product.id)}>
+                                <i className="material-symbols-outlined">add</i>
                             </button>}
 
                             {quantity && 
-                            <button onClick={() => removeProduct && removeProduct(productId)}>
+                            <button className={classes.buttonTrash} onClick={() => removeProduct && removeProduct(productId)}>
                                 <i className="material-symbols-outlined">delete</i>
                             </button>}
                       </div>
-                    )}              
+                    )}
+                </div>                  
         </div>
     );
 };
