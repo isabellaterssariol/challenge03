@@ -9,40 +9,43 @@ import SearchPage from "./pages/SearchPage";
 import AllProductsPage from "./pages/AllProductsPage";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
+import { CartProvider } from "./components/CartContext";
 
 function App() {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
       <BrowserRouter>
-        <Routes>
-          <Route 
-            path="/" 
-            element={<Root />} 
-          />
-          <Route 
-            path="/sign-in" 
-            element={<SignIn />} 
-          />
-          <Route 
-            path="/sign-up" 
-            element={<SignUp />} 
-          />
-          <Route 
-            path="/search-page" 
-            element={<SearchPage />} 
-          />
-          <Route 
-            path="/all-products" 
-            element={<AllProductsPage />} 
-          />
-          <Route
-            path="/product/:productId"
-            element={<ProductPage />}
-          />
-          <Route 
-            path="/cart" 
-            element={<CartPage />} />
-        </Routes>
+        <CartProvider>
+          <Routes>
+            <Route 
+              path="/" 
+              element={<Root />} 
+            />
+            <Route 
+              path="/sign-in" 
+              element={<SignIn />} 
+            />
+            <Route 
+              path="/sign-up" 
+              element={<SignUp />} 
+            />
+            <Route 
+              path="/search-page" 
+              element={<SearchPage />} 
+            />
+            <Route 
+              path="/all-products" 
+              element={<AllProductsPage />} 
+            />
+            <Route
+              path="/product/:productId"
+              element={<ProductPage />}
+            />
+            <Route 
+              path="/cart" 
+              element={<CartPage />} />
+          </Routes>
+         </CartProvider> 
       </BrowserRouter>
     </FirebaseAppProvider>
   );

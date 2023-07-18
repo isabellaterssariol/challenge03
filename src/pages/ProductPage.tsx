@@ -7,6 +7,7 @@ import userImage from "../assets/userImage.png";
 import classes from './ProductPage.module.css';
 import Button from "../components/Button";
 import SomeProducts from "../components/SomeProducts";
+import { useCartContext } from "../components/CartContext";
 
 interface ProductType {
   id: number;
@@ -30,6 +31,7 @@ const ProductPage = () => {
   const [selectedOption, setSelectedOption] = useState("overview");
   const [product, setProduct] = useState<ProductType | null>(null);
   const navigate = useNavigate();
+  const { addToCart } = useCartContext();
 
   const handleOptionChange = (option: string) => {
     setSelectedOption(option);
@@ -67,6 +69,7 @@ const ProductPage = () => {
   }
 
   const handleAddToCart = () => {
+    addToCart(product);
     navigate('/cart'); 
   };
 
