@@ -26,11 +26,13 @@ interface SearchCardProps {
     showReviews?: boolean;
     showQuantity?: boolean;
     quantity?: number;
+    addOne?: (productId: number) => void;
+    removeOne?: (productId: number) => void;
 }
 
 const apiUrl = 'https://run.mocky.io/v3/8658d4c7-1a28-49a1-bfa8-801a536ba6c3';
 
-const SearchCard: React.FC<SearchCardProps> = ({ productId, showReviews, showQuantity, quantity }) => {
+const SearchCard: React.FC<SearchCardProps> = ({ productId, showReviews, showQuantity, quantity, addOne, removeOne }) => {
     const [product, setProduct] = useState<ProductType | null>(null);
     
     useEffect(() => {
@@ -79,14 +81,21 @@ const SearchCard: React.FC<SearchCardProps> = ({ productId, showReviews, showQua
                             <i className="material-symbols-outlined">more_vert</i>
                         </div>
                     )}
-
+                </div>    
+            </Link>
                     {showQuantity && (
                         <div>
-                            <p>Quantuty: {quantity}</p> 
-                        </div>
-                    )}   
-                </div>
-            </Link>    
+                            {quantity && quantity > 1 ? 
+                            <button onClick={() => removeOne && removeOne(product.id)}>-</button> : <button disabled>
+                                -
+                            </button>}
+                            <p>{quantity}</p>
+                            {quantity && 
+                            <button onClick={() => addOne && addOne(product.id)}>
+                                +
+                            </button>}
+                      </div>
+                    )}              
         </div>
     );
 };

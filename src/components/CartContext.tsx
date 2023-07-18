@@ -7,11 +7,13 @@ interface ProductType {
 interface CartContextProps {
     cartProducts: ProductType[];
     addToCart: (product: ProductType) => void;
+    removeFromCart: (productId: number) => void;
 }
 
 const CartContext = createContext<CartContextProps>({
     cartProducts: [],
     addToCart: () => {},
+    removeFromCart: () => {},
 });
 
 const useCartContext = () => {
@@ -24,10 +26,20 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     const addToCart = (product: ProductType) => {
         setCartProducts([...cartProducts, product]);
     };
+
+    const removeFromCart = (productId: number) => {
+        const productIndex = cartProducts.findIndex((product) => product.id === productId);
+      
+        if (productIndex !== -1) {
+            const newCartProducts = [...cartProducts];
+            newCartProducts.splice(productIndex, 1);
+            setCartProducts(newCartProducts);
+        }
+    };
     
     return (
-        <CartContext.Provider value={{ cartProducts, addToCart }}>
-        {children}
+        <CartContext.Provider value={{ cartProducts, addToCart, removeFromCart}}>
+            {children}
         </CartContext.Provider>
     );
 };
