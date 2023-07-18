@@ -31,7 +31,7 @@ const AllProductsPage = () => {
     
     return (
         <div className={classes.container}>
-            <Header />
+            <Header showCart={true}/>
             <p className={classes.text}>Featured products</p>
             <h1 className={classes.title}>See all products</h1>
             <Filter 

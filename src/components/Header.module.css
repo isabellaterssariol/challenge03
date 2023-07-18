@@ -2,30 +2,32 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 100%;
+    min-width: 90vw;
     height: 3.438rem;
-    flex-shrink: 0;
     overflow: hidden;
-    padding: 25px 25px 0px 25px;
+    margin: 0px 30px 0px 25px;
+    padding-top: 20px;
 }
 
-.searchText {
+.text {
     color: var(--color-default);
     text-align: center;
     font-family: "DM Sans", serif;
     font-size: 1rem;
-    font-style: normal;
     font-weight: 700;
     line-height: 1.25rem; 
     letter-spacing: 0.2px;
+    flex: 1;
 }
 
-.homeButton i, .shoppingButton i {
+.homeButton i, .shoppingButton i, .trashButton i {
     width: 1.25rem;
     height: 1.25rem;
-    flex-shrink: 0;
     color: var(--color-default);
+    margin-right: 8px;
 }
 
-
-
+.button {
+    border: none;
+    background-color: var(--color-white);
+}

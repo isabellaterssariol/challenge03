@@ -6,7 +6,7 @@ import classes from "./SearchPage.module.css";
 const SearchPage = () => {
     return (
         <div className={classes.container}>
-            <Header showText={true}/>
+            <Header showText={true} text={"Search"} showCart={true}/>
             <Search />
             <p className={classes.text}>Popular product</p>
             <SearchCard productId={1} />
