@@ -42,6 +42,7 @@
     position: relative;
     padding: 0rem 0.625rem;
     margin-bottom: 1.875rem;
+    cursor: pointer;
 }
 
 .options.active::after {

@@ -31,7 +31,7 @@ interface SearchCardProps {
     removeProduct?: (productId: number) => void;
 }
 
-const apiUrl = 'https://run.mocky.io/v3/8658d4c7-1a28-49a1-bfa8-801a536ba6c3';
+const apiUrl = "https://run.mocky.io/v3/2e274c48-e3d7-4b21-820a-c5c3de9f53f5";
 
 const SearchCard: React.FC<SearchCardProps> = ({ productId, showReviews, showQuantity, quantity, addOne, removeOne, removeProduct }) => {
     const [product, setProduct] = useState<ProductType | null>(null);

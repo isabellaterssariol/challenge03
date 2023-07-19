@@ -20,6 +20,7 @@
     font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.2px;
+    cursor: pointer;
 }
 
 .filterOpened {
@@ -56,6 +57,7 @@
     color: var(--color-default);
     font-weight: 500;
     margin-left: 18.125rem;
+    cursor: pointer;
 }
 
 .filterOpened h2 {
@@ -85,6 +87,7 @@
     color: #7F7F7F;
     align-items: center;
     margin-right: 0.438rem;
+    cursor: pointer;
 }
 
 .labelCategory.active {
@@ -119,6 +122,7 @@
     margin: 0rem 0.75rem 0.8rem 0rem;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .labelFilter.active {

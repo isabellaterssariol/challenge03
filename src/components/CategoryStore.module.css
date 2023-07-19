@@ -19,6 +19,7 @@
     color: #7F7F7F;
     align-items: center;
     margin: 0rem 0.438rem 0.75rem 0rem;
+    cursor: pointer;
 }
 
 .categoryButton.active {

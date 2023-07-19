@@ -8,6 +8,7 @@
     font-family: "DM Sans", serif;
     margin: 0.438rem 0rem;
     background-color: var(--color-white);
+    cursor: pointer;
 }
 
 .headset {
