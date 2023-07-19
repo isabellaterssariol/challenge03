@@ -103,20 +103,20 @@ const LoginPage: React.FC<LoginPageProps> = ({
       </header>
 
       <form className={classes.form} onSubmit={handleFormSubmit}>
-        <div className={classes.field}>
+        <div className={`${classes.field} ${formError.email ? classes.error : ""}`}>
           <i className="material-symbols-outlined">mail</i>
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {formError.email && <span>{formError.email}</span>}
         </div>
+        {formError.email && <span className={classes.errorMessage}>{formError.email}</span>}
 
-        <div className={classes.field}>
+        <div className={`${classes.field} ${formError.password ? classes.error : ""}`}>
           <i className="material-symbols-outlined">lock</i>
           <input
             type="password"
@@ -126,12 +126,14 @@ const LoginPage: React.FC<LoginPageProps> = ({
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {formError.password && <span>{formError.password}</span>}
         </div>
+        {formError.password && <span className={classes.errorMessage}>{formError.password}</span>}
 
         {title === "Sign In" && <a href="#" className={classes.passwordForgotten}>Forgot Password</a>}
 
-        <Button type="submit" text={title === "Sign In" ? "Sign In" : "Sign Up"}></Button>
+        <div className={classes.submit}> 
+          <Button type="submit" text={title === "Sign In" ? "Sign In" : "Sign Up"}></Button>
+        </div>
 
         <div className={classes.iconCollection}>
           <button className={classes.icon}>
