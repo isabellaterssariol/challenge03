@@ -42,7 +42,7 @@
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.2px;
-    margin: 0.188rem 0rem 0.5rem 0rem;
+    margin: 0.188rem 0rem 0.3rem 0rem;
 }
 
 .reviews {
@@ -59,7 +59,7 @@
 
 .reviews p {
     color: var(--color-default);
-    font-size: 0.875rem;
+    font-size: 0.83rem;
     font-weight: 400;
     letter-spacing: 0.2px;
 }

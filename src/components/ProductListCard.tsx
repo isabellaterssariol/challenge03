@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import headsetImage from "../assets/headsetImage.png";
-import classes from "./SearchCard.module.css"
+import classes from "./ProductListCard.module.css"
 import starRating from "../assets/starFilled.png"
 import { Link } from "react-router-dom";
 
@@ -21,7 +21,7 @@ interface ReviewType {
     id: number;
 }
 
-interface SearchCardProps {
+interface ProductListProps {
     productId: number;
     showReviews?: boolean;
     showQuantity?: boolean;
@@ -33,7 +33,7 @@ interface SearchCardProps {
 
 const apiUrl = "https://run.mocky.io/v3/2e274c48-e3d7-4b21-820a-c5c3de9f53f5";
 
-const SearchCard: React.FC<SearchCardProps> = ({ productId, showReviews, showQuantity, quantity, addOne, removeOne, removeProduct }) => {
+const ProductListCard: React.FC<ProductListProps> = ({ productId, showReviews, showQuantity, quantity, addOne, removeOne, removeProduct }) => {
     const [product, setProduct] = useState<ProductType | null>(null);
     
     useEffect(() => {
@@ -118,4 +118,4 @@ const SearchCard: React.FC<SearchCardProps> = ({ productId, showReviews, showQua
     );
 };
 
-export default SearchCard;
+export default ProductListCard;
