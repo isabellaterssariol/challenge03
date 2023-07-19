@@ -32,16 +32,16 @@
     outline: none;
     color: var(--color-default);
     font-family: "DM Sans";
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.2px;
     margin-top: 0.625rem;
 }
 
-.infoText p {
+.price {
     color: var(--color-default);
     font-family: "DM Sans";
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
