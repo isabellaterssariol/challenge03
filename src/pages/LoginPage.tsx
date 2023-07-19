@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../components/Button";
 import classes from "./LoginPage.module.css";
 import facebookLogo from "../assets/facebookAuth.png";
@@ -17,6 +17,10 @@ interface LoginPageProps {
   onSubmit: (email: string, password: string, e: React.FormEvent) => void;
 }
 
+interface FormErrors {
+  [key: string]: string;
+}
+
 const LoginPage: React.FC<LoginPageProps> = ({
   title,
   handleGoogleSignUp,
@@ -29,12 +33,66 @@ const LoginPage: React.FC<LoginPageProps> = ({
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [formError, setFormError] = useState<FormErrors>({});
+
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const validateFields = {
+      email: {
+        condition: !email.trim() || !emailRegex.test(email),
+        message: "Enter a valid email address",
+      },
+
+      password: {
+        condition: password.length < 6,
+        message: "The password must have, at least, 6 characters",
+      }
+    };
+
+    const errors: { [key: string]: string } ={};
+
+    Object.entries(validateFields).forEach(([field, validation]) => {
+      if (validation.condition) {
+        errors[field] = validation.message;
+      }
+    });
+
+    return errors;
+  };
+
+  const clearErrorMessage = (fieldName: string) => {
+    setFormError((prevErrors: { [key: string]: string }) => {
+      const newErrors = { ...prevErrors };
+      delete newErrors[fieldName];
+      return newErrors;
+    });
+  };
+
+  useEffect(() => {
+    clearErrorMessage("email");
+  }, [email]);
+
+  useEffect(() => {
+    if (!validateForm().password) {
+      clearErrorMessage("password");
+    }
+  }, [password]);
+
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const errors = validateForm();
+      if (Object.keys(errors).length !== 0) {
+        setFormError(errors);
+        return;
+    }
+    
     onSubmit(email, password, e);
     setEmail("");
     setPassword("");
+    setFormError({});
   };
 
   return (
@@ -55,6 +113,7 @@ const LoginPage: React.FC<LoginPageProps> = ({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {formError.email && <span>{formError.email}</span>}
         </div>
 
         <div className={classes.field}>
@@ -67,6 +126,7 @@ const LoginPage: React.FC<LoginPageProps> = ({
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {formError.password && <span>{formError.password}</span>}
         </div>
 
         {title === "Sign In" && <a href="#" className={classes.passwordForgotten}>Forgot Password</a>}
