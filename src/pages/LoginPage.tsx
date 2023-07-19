@@ -5,6 +5,8 @@ import classes from "./LoginPage.module.css";
 import facebookLogo from "../assets/facebookAuth.png";
 import googleLogo from "../assets/googleAuth.png";
 import appleLogo from "../assets/appleAuth.png";
+import { auth } from "../configs/firebaseConfig";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 interface LoginPageProps {
   title: string;
@@ -34,6 +36,8 @@ const LoginPage: React.FC<LoginPageProps> = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formError, setFormError] = useState<FormErrors>({});
+  const [forgotPasswordClick, setForgotPasswordClick] = useState(false);
+  const [resetEmail, setResetEmail] = useState(false);
 
   const validateForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -80,13 +84,24 @@ const LoginPage: React.FC<LoginPageProps> = ({
   }, [password]);
 
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (forgotPasswordClick) {
+      try {
+        await sendPasswordResetEmail(auth, email); 
+        setResetEmail(true);
+      } catch (error) {
+        console.error("Error sending email:", error);
+      }
+      setForgotPasswordClick(false);
+      return;
+    }
 
     const errors = validateForm();
       if (Object.keys(errors).length !== 0) {
         setFormError(errors);
-        return;
+      return;
     }
     
     onSubmit(email, password, e);
@@ -103,36 +118,78 @@ const LoginPage: React.FC<LoginPageProps> = ({
       </header>
 
       <form className={classes.form} onSubmit={handleFormSubmit}>
-        <div className={`${classes.field} ${formError.email ? classes.error : ""}`}>
-          <i className="material-symbols-outlined">mail</i>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        {formError.email && <span className={classes.errorMessage}>{formError.email}</span>}
+        {!forgotPasswordClick && (
+          <>
+            <div className={`${classes.field} ${formError.email ? classes.error : ""}`}>
+              <i className="material-symbols-outlined">mail</i>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            {formError.email && <span className={classes.errorMessage}>{formError.email}</span>}
+          </>
+        )}  
+      
+        {!forgotPasswordClick && (
+          <>
+            <div className={`${classes.field} ${formError.password ? classes.error : ""}`}>
+              <i className="material-symbols-outlined">lock</i>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            {formError.password && <span className={classes.errorMessage}>{formError.password}</span>}
+          </>
+        )}
 
-        <div className={`${classes.field} ${formError.password ? classes.error : ""}`}>
-          <i className="material-symbols-outlined">lock</i>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        {formError.password && <span className={classes.errorMessage}>{formError.password}</span>}
+        {!forgotPasswordClick && (
+          title === "Sign In" && 
+          <button className={classes.passwordForgotten} onClick={() => setForgotPasswordClick(true)}>
+            Forgot Password
+          </button>
+        )}
 
-        {title === "Sign In" && <a href="#" className={classes.passwordForgotten}>Forgot Password</a>}
+        {forgotPasswordClick && !resetEmail && (
+          <>
+            <div className={`${classes.field}`}>
+              <i className="material-symbols-outlined">mail</i>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            {formError.email && (
+              <span className={classes.errorMessage}>{formError.email}</span>
+            )}
+          </>
+        )}
 
-        <div className={classes.submit}> 
-          <Button type="submit" text={title === "Sign In" ? "Sign In" : "Sign Up"}></Button>
+        {resetEmail && (
+          <div>
+            <p>Password reset email sent successfully!</p>
+            <Button type="button" text="OK" onClick={() => setResetEmail(false)} />
+          </div>
+        )}
+
+        <div className={classes.submit}>
+          {forgotPasswordClick ? (
+            <Button type="submit" text="Send"/> ) : ( 
+            <Button type="submit" text={title === "Sign In" ? "Sign In" : "Sign Up"}/>
+          )}
         </div>
 
         <div className={classes.iconCollection}>

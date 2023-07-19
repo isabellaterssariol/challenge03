@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from "../configs/firebaseConfig";
 import LoginPage from "../pages/LoginPage";
-import Root from "../pages/Root";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -52,7 +51,6 @@ const SignIn = () => {
         handleGoogleSignIn={handleGoogleSignIn}
         handleFacebookSignIn={handleFacebookSignIn}
       />
-      <Root />
     </>
   );
 };

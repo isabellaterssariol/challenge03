@@ -150,3 +150,26 @@
 .field.error i {
     color: red;
 }
+
+.resetEmailSentMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.resetEmailSentMessage p {
+    margin-bottom: 10px;
+}
+  
+.resetEmailSentMessage button {
+    margin-top: 10px;
+}
