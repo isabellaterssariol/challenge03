@@ -161,6 +161,7 @@ const LoginPage: React.FC<LoginPageProps> = ({
 
         {forgotPasswordClick && !resetEmail && (
           <>
+            <p className={classes.recover}>Fill your email to recover your account</p>
             <div className={`${classes.field}`}>
               <i className="material-symbols-outlined">mail</i>
               <input
@@ -179,7 +180,7 @@ const LoginPage: React.FC<LoginPageProps> = ({
         )}
 
         {resetEmail && (
-          <div>
+          <div className={classes.resetEmailMessage}>
             <p>Password reset email sent successfully!</p>
             <Button type="button" text="OK" onClick={() => setResetEmail(false)} />
           </div>
