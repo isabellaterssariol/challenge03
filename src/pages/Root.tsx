@@ -7,12 +7,15 @@ import HomePage from "./HomePage";
 const Root = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
+  const [photoUser, setPhotoUser] = useState("");
 
   useEffect(() => {
     const notLogged = onAuthStateChanged(auth, (user) => {
       if (user) {
         const name = user.displayName ? user.displayName.split(" ")[0] : "";
-        setName(name); 
+        setName(name);
+        const photoUser = user.photoURL || "";
+        setPhotoUser(photoUser);
         navigate("/");
       } else {
         navigate("/sign-in");
@@ -28,7 +31,8 @@ const Root = () => {
     <Routes>
       <Route 
         path="/" 
-        element={<HomePage name={name} />} 
+        element=
+        {<HomePage name={name} photo={photoUser}/>}
       />
     </Routes>
   );
