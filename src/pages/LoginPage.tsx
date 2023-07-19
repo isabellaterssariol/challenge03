@@ -3,7 +3,8 @@ import { useState } from "react";
 import Button from "../components/Button";
 import classes from "./LoginPage.module.css";
 import facebookLogo from "../assets/facebookAuth.png";
-import googleLogo from "../assets/googleAuth.png"
+import googleLogo from "../assets/googleAuth.png";
+import appleLogo from "../assets/appleAuth.png";
 
 interface LoginPageProps {
   title: string;
@@ -73,6 +74,13 @@ const LoginPage: React.FC<LoginPageProps> = ({
         <Button type="submit" text={title === "Sign In" ? "Sign In" : "Sign Up"}></Button>
 
         <div className={classes.iconCollection}>
+          <button className={classes.icon}>
+              <img
+                src={appleLogo}
+                alt="Apple Logo"
+              />
+            </button>
+
           <button className={classes.icon} onClick={handleFacebookSignUp || handleFacebookSignIn}>
             <img
               src={facebookLogo}
