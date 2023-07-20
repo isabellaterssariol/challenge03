@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./burger-menu-style/BurgerMenu.css";
 import classes from "./NavBar.module.css";
 import menuBurger from "../assets/menuBurger.png";
+import logo from "../assets/audioLogo.png";
 
 interface NavBarProps {
   photo: string;
@@ -18,11 +19,21 @@ const NavBar: React.FC<NavBarProps> = ({ photo }) => {
                     <Link to="/cart" className={classes.link}>Shopping Cart</Link>
                 </Menu>
             </div>
-            <img 
-                src={photo} 
-                alt="User Avatar" 
-                className={classes.photoUser}
-            />
+            <div className={classes.logo}>
+                <img 
+                    src={logo} 
+                    alt="Logo Audio"
+                    className={classes.logoImage}
+                />
+                <p className={classes.logoName}>Audio</p>
+            </div>
+            <div>
+                <img 
+                    src={photo} 
+                    alt="User Avatar" 
+                    className={classes.photoUser}
+                />
+            </div>
         </div>
     );
 };

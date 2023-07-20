@@ -1,5 +1,8 @@
 .container {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 22px;
 }
 
 .link {
@@ -7,4 +10,29 @@
     color: var(--color-white);
     font-family: "DM Sans", serif;
     padding: 10px 0px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logoImage {
+    width: 20.5px;
+    height: 20.5px;
+}
+
+.logoName {
+    color: var(--colors-default, #000);
+    font-family: "DM Sans", serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.238px;
+    margin-left: 5px;
+}
+
+.photoUser {
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
 }
