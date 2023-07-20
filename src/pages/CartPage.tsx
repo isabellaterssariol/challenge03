@@ -56,7 +56,7 @@ const CartPage = () => {
       />
 
       {cartProducts.length === 0 ? (
-        <p>Empty shopping cart.</p>
+        <p>Empty shopping cart</p>
       ) : (
         <ul>
           {exclusiveId.map((productId) => (

@@ -37,7 +37,7 @@ const Filter: React.FC<FilterProps> = ({
             <div className={classes.filterOpened}>
                 <div className={classes.header}>
                     <h1>Filter</h1>
-                    <button onClick={closeFilter}>X</button>
+                    <button onClick={closeFilter} className={classes.buttonHeader}>X</button>
                 </div>
 
                 <div className={classes.categories}>
