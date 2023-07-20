@@ -1,5 +1,5 @@
 import { slide as Menu } from "react-burger-menu";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./burger-menu-style/BurgerMenu.css";
 import classes from "./NavBar.module.css";
 import menuBurger from "../assets/menuBurger.png";
@@ -14,9 +14,9 @@ const NavBar: React.FC<NavBarProps> = ({ photo }) => {
         <div className={classes.container}>  
             <div className={classes.burgerMenu}>
                 <Menu customBurgerIcon={<img src={menuBurger} alt="Menu Burger" />}>
-                    <Link to="/" className={classes.link}>Home</Link>
-                    <Link to="/all-products" className={classes.link}>Products</Link>
-                    <Link to="/cart" className={classes.link}>Shopping Cart</Link>
+                    <NavLink to="/" className={classes.link}>Home</NavLink>
+                    <NavLink to="/all-products" className={classes.link}>Products</NavLink>
+                    <NavLink to="/cart" className={classes.link}>Shopping Cart</NavLink>
                 </Menu>
             </div>
             <div className={classes.logo}>
