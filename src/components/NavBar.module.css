@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--color-white);
+    font-family: "DM Sans", serif;
+    padding: 10px 0px;
+}
