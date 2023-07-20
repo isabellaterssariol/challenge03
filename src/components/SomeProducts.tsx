@@ -18,11 +18,10 @@ const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
             <div>
                 <Splide
                     options={{
-                    perPage: 3,
-                    perMove: 1,
-                    arrows: false,
-                    pagination: false,
-                    gap: "165px",
+                        autoWidth: true,
+                        rewind: true,
+                        arrows: false,
+                        pagination: false,
                     }}>
                     <SplideSlide>
                         <ProductCard productId={17}/> 

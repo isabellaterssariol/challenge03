@@ -1,8 +1,8 @@
 .container {
     max-width: 100%;
-    min-height: 100vh;
     font-family: "DM Sans", serif;
     background-color: var(--color-white);
+    overflow: hidden;
 }
 
 .welcomeText {

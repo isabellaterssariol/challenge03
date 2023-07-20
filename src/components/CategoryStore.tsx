@@ -56,11 +56,10 @@ const CategoryStore = () => {
       </div>
       <Splide
         options={{
-          perPage: 2,
-          perMove: 1,
+          autoWidth: true,
+          rewind: true,
           arrows: false,
           pagination: false,
-          gap: "22.6rem",
         }}>
         {filteredProducts.map((product) => (
           <SplideSlide key={product.id}>
