@@ -10,6 +10,7 @@ import AllProductsPage from "./pages/AllProductsPage";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import { CartProvider } from "./components/CartContext";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -43,7 +44,12 @@ function App() {
             />
             <Route 
               path="/cart" 
-              element={<CartPage />} />
+              element={<CartPage />} 
+            />
+            <Route 
+              path="*" 
+              element={<ErrorPage />}
+            />
           </Routes>
          </CartProvider> 
       </BrowserRouter>
