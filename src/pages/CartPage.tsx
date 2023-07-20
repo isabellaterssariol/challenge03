@@ -48,13 +48,13 @@ const CartPage = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          initial={{ x: "100%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: "-100%", opacity: 0.5 }}
-          transition={{ duration: 0.5 }}>
+    <AnimatePresence mode="wait">
+      <motion.div
+        initial={{ x: "100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: "-100%", opacity: 0.5 }}
+        transition={{ duration: 0.5 }}>
+        <div className={classes.container}>
           <Header
             showText={true}
             text={"Shopping Cart"}
@@ -97,9 +97,9 @@ const CartPage = () => {
             </div>
             <Button text={"Proceed to Checkout"} showArrow={true} />
           </div>
-        </motion.div>  
-      </AnimatePresence>
-    </div>
+        </div>
+      </motion.div>  
+    </AnimatePresence>
   );
 };
 

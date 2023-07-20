@@ -36,7 +36,7 @@ const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
                         <ProductCard productId={31}/> 
                     </SplideSlide>
                     <SplideSlide>
-                        <ProductCard productId={22}/> 
+                        <ProductCard productId={5}/> 
                     </SplideSlide>
                     <SplideSlide>
                         <ProductCard productId={25}/> 

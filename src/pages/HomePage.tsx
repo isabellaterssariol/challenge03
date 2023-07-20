@@ -12,13 +12,13 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ name, photo }) => {
     return (
-        <div className={classes.container}>
-            <AnimatePresence mode="wait">
-                <motion.div
-                    initial={{ x: "-100%", opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: "100%", opacity: 0.5 }}
-                    transition={{ duration: 1 }}>
+        <AnimatePresence mode="wait">
+            <motion.div
+                initial={{ x: "-100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: "100%", opacity: 0.5 }}
+                transition={{ duration: 1 }}>
+                <div className={classes.container}>
                     <div>
                         <NavBar photo={photo}/>
                     </div> 
@@ -31,10 +31,9 @@ const HomePage: React.FC<HomePageProps> = ({ name, photo }) => {
                     <Search />
                     <CategoryStore />
                     <SomeProducts title={"Featured Products"}/>
-
-                </motion.div>
-            </AnimatePresence> 
-        </div>
+                </div>
+            </motion.div>
+        </AnimatePresence> 
     );
 };
 

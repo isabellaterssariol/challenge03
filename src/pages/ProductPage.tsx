@@ -75,13 +75,13 @@ const ProductPage = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          initial={{ x: "100%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1  }}
-          exit={{ x: "-100%", opacity: 0.5 }}
-          transition={{ duration: 0.5 }}>
+    <AnimatePresence mode="wait">
+      <motion.div
+        initial={{ x: "100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1  }}
+        exit={{ x: "-100%", opacity: 0.5 }}
+        transition={{ duration: 0.5 }}>
+        <div className={classes.container}>
           <Header showCart={true}/>
           <p className={classes.price}>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
           <h1 className={classes.title}>{product.name}</h1>
@@ -153,9 +153,9 @@ const ProductPage = () => {
           <div className ={classes.button}>
             <Button text={"Add To Cart"} onClick={handleAddToCart}/>
           </div>
-        </motion.div>
-      </AnimatePresence>  
-    </div>
+        </div>  
+      </motion.div>
+    </AnimatePresence>  
   );
 };
 

@@ -31,13 +31,13 @@ const AllProductsPage = () => {
     };
     
     return (
-        <div className={classes.container}>
-            <AnimatePresence mode="wait">
-                <motion.div
+        <AnimatePresence mode="wait">
+            <motion.div
                 initial={{ x: "100%", opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: "-100%", opacity: 0.5 }}
                 transition={{ duration: 0.5 }}>
+                <div className={classes.container}>
                     <Header showCart={true}/>
                     <p className={classes.text}>Featured products</p>
                     <h1 className={classes.title}>See all products</h1>
@@ -55,9 +55,9 @@ const AllProductsPage = () => {
                         filter={selectedFilter}
                         category={selectedCategory}
                     />
-                </motion.div>
-            </AnimatePresence>  
-        </div>
+                </div>
+            </motion.div>
+        </AnimatePresence>  
     );
 };
 
