@@ -3,6 +3,7 @@ import { useCartContext } from "../components/CartContext";
 import ProductListCard from "../components/ProductListCard";
 import Button from "../components/Button";
 import classes from "./CartPage.module.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CartPage = () => {
   const { cartProducts, addToCart, removeFromCart, removeProduct, removeAll } =
@@ -48,43 +49,51 @@ const CartPage = () => {
 
   return (
     <div className={classes.container}>
-      <Header
-        showText={true}
-        text={"Shopping Cart"}
-        showTrash={true}
-        onClick={handleTrashClick}
-      />
+      <AnimatePresence mode="wait">
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ duration: 0.6 }}>
+          <Header
+            showText={true}
+            text={"Shopping Cart"}
+            showTrash={true}
+            onClick={handleTrashClick}
+          />
 
-      {cartProducts.length === 0 ? (
-        <p>Empty shopping cart</p>
-      ) : (
-        <ul>
-          {exclusiveId.map((productId) => (
-            <div key={productId}>
-              <li>
-                <ProductListCard
-                  productId={productId}
-                  showQuantity={true}
-                  quantity={quantityProduct[productId]}
-                  addOne={addOneProduct}
-                  removeOne={removeOneProduct}
-                  removeProduct={removeProductFromCart}
-                />
-              </li>
+          {cartProducts.length === 0 ? (
+            <p>Empty shopping cart</p>
+          ) : (
+            <ul>
+              {exclusiveId.map((productId) => (
+                <div key={productId}>
+                  <li>
+                    <ProductListCard
+                      productId={productId}
+                      showQuantity={true}
+                      quantity={quantityProduct[productId]}
+                      addOne={addOneProduct}
+                      removeOne={removeOneProduct}
+                      removeProduct={removeProductFromCart}
+                    />
+                  </li>
+                </div>
+              ))}
+            </ul>
+          )}
+
+          <div className={classes.footer}>
+            <div className={classes.total}>
+              <p
+                className={classes.totalItems}
+              >{`Total ${totalItems()} Item(s)`}</p>
+              <p className={classes.totalPrice}>{`USD ${totalPrice()}`}</p>
             </div>
-          ))}
-        </ul>
-      )}
-
-      <div className={classes.footer}>
-        <div className={classes.total}>
-          <p
-            className={classes.totalItems}
-          >{`Total ${totalItems()} Item(s)`}</p>
-          <p className={classes.totalPrice}>{`USD ${totalPrice()}`}</p>
-        </div>
-        <Button text={"Proceed to Checkout"} showArrow={true} />
-      </div>
+            <Button text={"Proceed to Checkout"} showArrow={true} />
+          </div>
+        </motion.div>  
+      </AnimatePresence>
     </div>
   );
 };

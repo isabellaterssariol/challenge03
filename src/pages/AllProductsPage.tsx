@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import classes from "./AllProductsPage.module.css";
 import { useState } from "react";
 import Filter from "../components/Filter";
+import { motion, AnimatePresence } from "framer-motion";
 
 const AllProductsPage = () => {
     const [showFilter, setShowFilter] = useState(false);
@@ -31,23 +32,31 @@ const AllProductsPage = () => {
     
     return (
         <div className={classes.container}>
-            <Header showCart={true}/>
-            <p className={classes.text}>Featured products</p>
-            <h1 className={classes.title}>See all products</h1>
-            <Filter 
-                selectedFilter={selectedFilter}
-                selectedCategory={selectedCategory}
-                handleFilterClick={handleFilterChange}
-                handleCategoryClick={handleCategoryChange}
-                applyFilter={handleApplyFilter}
-                showFilter={showFilter}
-                openFilter={handleOpenFilter}
-                closeFilter={handleCloseFilter}
-            />
-            <AllProducts 
-                filter={selectedFilter}
-                category={selectedCategory}
-            />
+            <AnimatePresence mode="wait">
+                <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ duration: 0.5 }}>
+                    <Header showCart={true}/>
+                    <p className={classes.text}>Featured products</p>
+                    <h1 className={classes.title}>See all products</h1>
+                    <Filter 
+                        selectedFilter={selectedFilter}
+                        selectedCategory={selectedCategory}
+                        handleFilterClick={handleFilterChange}
+                        handleCategoryClick={handleCategoryChange}
+                        applyFilter={handleApplyFilter}
+                        showFilter={showFilter}
+                        openFilter={handleOpenFilter}
+                        closeFilter={handleCloseFilter}
+                    />
+                    <AllProducts 
+                        filter={selectedFilter}
+                        category={selectedCategory}
+                    />
+                </motion.div>
+            </AnimatePresence>  
         </div>
     );
 };
