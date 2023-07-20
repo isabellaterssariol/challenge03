@@ -2,6 +2,7 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 import classes from "./Filter.module.css";
 import Button from "./Button";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FilterProps {
     selectedFilter: string;
@@ -26,10 +27,17 @@ const Filter: React.FC<FilterProps> = ({
 
   return (
     <div className={classes.container}>
-        <button onClick={openFilter} className={classes.filterButton}>
-            <i className="material-symbols-outlined">instant_mix</i>
-            Filter
-        </button>
+        <AnimatePresence mode="wait">
+            <motion.div
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }} 
+                transition={{ duration: 1.5 }}>
+                <button onClick={openFilter} className={classes.filterButton}>
+                    <i className="material-symbols-outlined">instant_mix</i>
+                    Filter
+                </button>
+            </motion.div>
+        </AnimatePresence>    
         <BottomSheet 
             open={showFilter} 
             onDismiss={closeFilter}>

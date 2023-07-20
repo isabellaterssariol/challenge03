@@ -86,52 +86,69 @@ const ProductPage = () => {
           <p className={classes.price}>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
           <h1 className={classes.title}>{product.name}</h1>
 
-          <div className={classes.optionsButton}>
-            <button
-              onClick={() => handleOptionChange("overview")}
-              className={`${classes.options} ${selectedOption === "overview" ? classes.active : ""}`}>
-              Overview
-            </button>
+          <motion.div
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }} 
+            transition={{ duration: 1.5 }}>
+            <div className={classes.optionsButton}>
+              <button
+                onClick={() => handleOptionChange("overview")}
+                className={`${classes.options} ${selectedOption === "overview" ? classes.active : ""}`}>
+                Overview
+              </button>
 
-            <button
-              onClick={() => handleOptionChange("features")}
-              className={`${classes.options} ${selectedOption === "features" ? classes.active : ""}`}>
-              Features
-            </button>
-          </div>
+              <button
+                onClick={() => handleOptionChange("features")}
+                className={`${classes.options} ${selectedOption === "features" ? classes.active : ""}`}>
+                Features
+              </button>
+            </div>
+          </motion.div>
 
           {selectedOption=== "overview" && (
-            <div className={classes.overview}>
-              <img
-                src={headsetImage}
-                alt="Headset"
-                className={classes.imageHeadset}
-              />
-              <p className={classes.reviewsLength}>{`Reviews (${product.reviews.length})`}</p>
-              {product.reviews.map((review) => (
-                <div key={review.id} className={classes.review}>
-                  <img
-                    src={userImage}
-                    alt="Headset"
-                    className={classes.userImage}
-                  />
-                  <div className={classes.userInfo}> 
-                    <h3>{review.user}</h3>
-                    {renderStars(review.rating)}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.5 }}>
+              <div className={classes.overview}>
+                <img
+                  src={headsetImage}
+                  alt="Headset"
+                  className={classes.imageHeadset}
+                />
+                <p className={classes.reviewsLength}>{`Reviews (${product.reviews.length})`}</p>
+                {product.reviews.map((review) => (
+                  <div key={review.id} className={classes.review}>
+                    <img
+                      src={userImage}
+                      alt="Headset"
+                      className={classes.userImage}
+                    />
+                    <div className={classes.userInfo}> 
+                      <h3>{review.user}</h3>
+                      {renderStars(review.rating)}
+                    </div>
+                    <p className={classes.description}>{review.description}</p>
                   </div>
-                  <p className={classes.description}>{review.description}</p>
+                ))}
+                <div className={classes.someProducts}>
+                  <SomeProducts title={"Another Product"}/>
                 </div>
-              ))}
-              <div className={classes.someProducts}>
-                <SomeProducts title={"Another Product"}/>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {selectedOption === "features" && (
-            <div className={classes.features}>
-              <p>{product.description}</p>
-            </div>
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.5 }}> 
+              <div className={classes.features}>
+                <p>{product.description}</p>
+              </div>
+            </motion.div>
           )}
           <div className ={classes.button}>
             <Button text={"Add To Cart"} onClick={handleAddToCart}/>

@@ -67,18 +67,23 @@ const CartPage = () => {
           ) : (
             <ul>
               {exclusiveId.map((productId) => (
-                <div key={productId}>
-                  <li>
-                    <ProductListCard
-                      productId={productId}
-                      showQuantity={true}
-                      quantity={quantityProduct[productId]}
-                      addOne={addOneProduct}
-                      removeOne={removeOneProduct}
-                      removeProduct={removeProductFromCart}
-                    />
-                  </li>
-                </div>
+                <motion.div
+                  initial={{ scale: 0.5 }}
+                  animate={{ scale: 1 }} 
+                  transition={{ duration: 1.5 }}>
+                  <div key={productId}>
+                    <li>
+                      <ProductListCard
+                        productId={productId}
+                        showQuantity={true}
+                        quantity={quantityProduct[productId]}
+                        addOne={addOneProduct}
+                        removeOne={removeOneProduct}
+                        removeProduct={removeProductFromCart}
+                      />
+                    </li>
+                  </div>
+                </motion.div>
               ))}
             </ul>
           )}

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductListCard from "./ProductListCard";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ProductType {
   id: number;
@@ -56,17 +57,24 @@ const Search = () => {
   }, [searchProduct]);
 
   return (
-    <>
-      <div className={classes.search}>
-        <i className="material-symbols-outlined">search</i>
-        <input
-          type="text"
-          placeholder="Search headphone"
-          onChange={handleInputChange}
-          onClick={handleInputClick}
-          className={classes.inputSearch}
-        />
-      </div>
+    <>  
+      <AnimatePresence mode="wait">
+        <motion.div
+          initial={{ scale: 0.5 }}
+          animate={{ scale: 1 }} 
+          transition={{ duration: 1.5 }}>
+          <div className={classes.search}>
+            <i className="material-symbols-outlined">search</i>
+            <input
+              type="text"
+              placeholder="Search headphone"
+              onChange={handleInputChange}
+              onClick={handleInputClick}
+              className={classes.inputSearch}
+            />
+          </div>
+        </motion.div>
+      </AnimatePresence>  
       <ul>
         {searchProduct.trim() !== "" ? (
           searchResult.length > 0 ? (
