@@ -38,4 +38,10 @@
     left: 0;
     top: 0;
 }
+
+@media (min-width: 769px) { 
+    .bm-burger-button {
+        display: none;
+    }
+}
   

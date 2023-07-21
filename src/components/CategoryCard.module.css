@@ -44,4 +44,59 @@
     margin-right: 0.5rem;
 }
 
+@media (max-width: 320px) {
+    .container {
+        width: 13rem;
+        height: 11.875rem;
+        padding: 0.938rem 1.6rem;
+        margin: 0.438rem 1.2rem 0.438rem 0rem;
+    }
+    
+    .headset {
+        width: 5rem;
+        height: 6rem;
+    }
+
+    .container h1 {
+        font-size: 1rem;
+    }
+}
+
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .container {
+        width: 18.8rem;
+        padding: 0.938rem 1.5rem;
+        margin: 0.438rem 0.7rem 0.438rem 0.2rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 16.5rem;
+        padding: 0.938rem 1.5rem;
+        margin: 0.438rem 0.7rem 0.438rem 0.2rem;
+    }
+
+    .headset {
+        width: 6.5rem;
+        height: 8rem;
+    }
+
+    .container h1 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        width: 17rem;
+        padding: 0.938rem 1.98rem;
+        margin: 0.438rem 0.62rem 0.438rem 0.2rem;
+    }
+
+}
+
+
+
 

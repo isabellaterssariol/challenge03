@@ -76,3 +76,64 @@
 .rating {
     margin: 0rem 0.625rem 0rem 0.25rem;
 }
+
+@media (max-width: 320px) {
+    .container {
+        width: 6.3rem;
+        padding: 1.25rem 0.938rem;
+        margin: 0.438rem 0.6rem 0.438rem 0rem;
+    }
+    
+    .headset {
+        width: 5rem;
+        height: 6rem;
+    }
+
+    .infoText h1 {
+        font-size: 0.85rem;
+    }
+
+    .price {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .container {
+        width: 8.7rem;
+        padding: 1.25rem 0.938rem;
+        margin: 0.438rem 0.75rem 0.438rem 0rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 9.37rem;
+        padding: 1.25rem 1rem;
+        margin: 0.438rem 0.92rem 0.438rem 0rem;
+    }
+
+    .infoText h1 {
+        font-size: 0.95rem;
+    }
+
+    .price {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        width: 9.5rem;
+        padding: 1.25rem 1rem;
+        margin: 0.438rem 0.96rem 0.438rem 0rem;
+    }
+
+    .infoText h1 {
+        font-size: 0.95rem;
+    }
+
+    .price {
+        font-size: 0.9rem;
+    }
+}

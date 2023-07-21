@@ -10,7 +10,6 @@
 .welcome {
     color: var(--color-default);
     font-size: 1rem;
-    font-style: normal;
     font-weight: 400;
     line-height: 1.25rem;
     letter-spacing: 0.2px;
@@ -20,8 +19,33 @@
 .text {
     color: var(--color-default);
     font-size: 1.625rem;
-    font-style: normal;
     font-weight: 700;
     line-height: 2rem;
     letter-spacing: 0.2px;
+}
+
+@media (max-width: 320px) {
+    .text {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .text {
+        text-align: center;
+    }
+
+    .welcome {
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .text {
+        text-align: center;
+    }
+
+    .welcome {
+        text-align: center;
+    }
 }

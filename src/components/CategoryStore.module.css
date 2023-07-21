@@ -27,3 +27,25 @@
     color: var(--color-white);
     border-radius: 1.875rem;
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .categoryButton {
+        font-size: 1rem;
+    }
+    
+    .categories {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1025px) {
+    .categoryButton {
+        font-size: 1rem;
+    }
+    
+    .categories {
+        display: flex;
+        justify-content: center;
+    }
+}

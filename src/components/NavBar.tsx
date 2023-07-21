@@ -27,7 +27,14 @@ const NavBar: React.FC<NavBarProps> = ({ photo }) => {
                 />
                 <p className={classes.logoName}>Audio</p>
             </div>
-            <div>
+            <div className={classes.navBar}>
+                <NavLink to="/" className={classes.linkNav}>Home</NavLink>
+
+                <NavLink to="/all-products" className={classes.linkNav}>Products</NavLink>
+
+                <NavLink to="/cart" className={classes.linkNav}>Shopping Cart</NavLink>
+            </div>
+            <div className={classes.imageNav}>
                 <img 
                     src={photo} 
                     alt="User Avatar" 
