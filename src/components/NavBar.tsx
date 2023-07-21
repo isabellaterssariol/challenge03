@@ -6,10 +6,12 @@ import menuBurger from "../assets/menuBurger.png";
 import logo from "../assets/audioLogo.png";
 
 interface NavBarProps {
-  photo?: string;
+    photo?: string;
+    showTrash?: boolean;
+    onClick?: () => void;
 }
 
-const NavBar: React.FC<NavBarProps> = ({ photo }) => {
+const NavBar: React.FC<NavBarProps> = ({ photo, showTrash, onClick }) => {
     return (
         <div className={classes.container}>  
             <div className={classes.burgerMenu}>
@@ -43,6 +45,14 @@ const NavBar: React.FC<NavBarProps> = ({ photo }) => {
                     />
                 </div>
             )}
+
+            <div className={classes.trashButton}>
+                {showTrash && (
+                    <button onClick={onClick} className={classes.button}>
+                        <i className="material-symbols-outlined">delete</i>
+                    </button>
+                )}
+            </div>
         </div>
     );
 };

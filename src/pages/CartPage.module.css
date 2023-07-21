@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     font-family: "DM Sans", serif;
-    min-height: 100vh;
+    min-height: 86vh;
     overflow: hidden;
 }
 
@@ -12,7 +12,6 @@
     justify-content: center;
     flex-direction: column;
     margin-top: auto;
-    margin-bottom: 2rem;
 }
 
 .total {
@@ -22,7 +21,7 @@
 
 .totalItems {
     margin-right: auto;
-    color: var(--colors-default, #000);
+    color: var(--color-default);
     font-size: 13px;
     font-weight: 700;
     line-height: 1.25rem;
@@ -31,10 +30,81 @@
 }
 
 .totalPrice {
-    color: var(--colors-default, #000);
+    color: var(--color-default);
     text-align: right;
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.25rem; 
     letter-spacing: 0.2px;
+}
+
+.navBar {
+    display: none;
+    font-family: "DM Sans", serif;
+}
+
+ul {
+    list-style: none;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        min-height: 88vh;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100vw;
+        max-height: 8vh;
+    }
+    
+    .total {
+        display: flex;
+        min-width: 20vw;
+        margin-left: 30px;
+    }
+
+    .totalItems {
+        font-size: 1rem;
+    }
+    
+    .totalPrice {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        min-height: 80vh;
+    }
+
+    .navBar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 24px 22px;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 90vw;
+        max-height: 8vh;
+    }
+    
+    .total {
+        display: flex;
+        min-width: 30vw;
+    }
+
+    .totalItems {
+        font-size: 1rem;
+    }
+    
+    .totalPrice {
+        font-size: 1.1rem;
+    }
 }

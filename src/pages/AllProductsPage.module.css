@@ -27,6 +27,7 @@
 
 .navBar {
     display: none;
+    font-family: "DM Sans", serif;
 }
 
 @media (min-width: 1024px) {

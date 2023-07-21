@@ -77,7 +77,7 @@
 .quantity {
     display: flex;
     align-items: center;
-    min-width: 62vw;
+    min-width: 65vw;
     justify-content: flex-end;
 }
 
@@ -190,5 +190,9 @@
     .reviews i {
         width: 0.65rem;
         height: 0.65rem;
+    }
+
+    .quantity {
+        min-width: 79vw;
     }
 }
