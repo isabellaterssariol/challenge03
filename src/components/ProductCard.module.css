@@ -96,6 +96,10 @@
     .price {
         font-size: 0.75rem;
     }
+
+    .reviews i {
+        display: none;
+    }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {

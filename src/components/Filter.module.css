@@ -1,14 +1,15 @@
 .container {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .filterButton {
     display: flex;
-    width: 88vw;
+    width: 90vw;
     height: 2.563rem;
     padding: 0.625rem 0.938rem;
-    margin: 0rem 1.375rem 2.5rem 1.375rem;
+    margin: 0rem 1rem 2.5rem 1rem;
     justify-content: center;
     align-items: center;
     border-radius: 0.625rem;

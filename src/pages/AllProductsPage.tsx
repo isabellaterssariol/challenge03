@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import classes from "./AllProductsPage.module.css";
 import { useState } from "react";
 import Filter from "../components/Filter";
-import { motion, AnimatePresence } from "framer-motion";
+import NavBar from "../components/NavBar";
 
 const AllProductsPage = () => {
     const [showFilter, setShowFilter] = useState(false);
@@ -31,33 +31,29 @@ const AllProductsPage = () => {
     };
     
     return (
-        <AnimatePresence mode="wait">
-            <motion.div
-                initial={{ x: "100%", opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: "-100%", opacity: 0.5 }}
-                transition={{ duration: 0.5 }}>
-                <div className={classes.container}>
-                    <Header showCart={true}/>
-                    <p className={classes.text}>Featured products</p>
-                    <h1 className={classes.title}>See all products</h1>
-                    <Filter 
-                        selectedFilter={selectedFilter}
-                        selectedCategory={selectedCategory}
-                        handleFilterClick={handleFilterChange}
-                        handleCategoryClick={handleCategoryChange}
-                        applyFilter={handleApplyFilter}
-                        showFilter={showFilter}
-                        openFilter={handleOpenFilter}
-                        closeFilter={handleCloseFilter}
-                    />
-                    <AllProducts 
-                        filter={selectedFilter}
-                        category={selectedCategory}
-                    />
-                </div>
-            </motion.div>
-        </AnimatePresence>  
+
+        <div className={classes.container}>
+            <Header showCart={true}/>
+            <div className={classes.navBar}> 
+                <NavBar />
+            </div>
+            <p className={classes.text}>Featured products</p>
+            <h1 className={classes.title}>See all products</h1>
+            <Filter 
+                selectedFilter={selectedFilter}
+                selectedCategory={selectedCategory}
+                handleFilterClick={handleFilterChange}
+                handleCategoryClick={handleCategoryChange}
+                applyFilter={handleApplyFilter}
+                showFilter={showFilter}
+                openFilter={handleOpenFilter}
+                closeFilter={handleCloseFilter}
+            />
+            <AllProducts 
+                filter={selectedFilter}
+                category={selectedCategory}
+            />
+        </div>
     );
 };
 

@@ -24,3 +24,12 @@
     margin: 0rem 1.375rem 0.938rem 1.375rem;
 }
 
+.navBar {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .navBar {
+        display: block;
+    }
+}
