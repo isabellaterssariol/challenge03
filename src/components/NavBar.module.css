@@ -56,14 +56,18 @@
 
 @media (min-width: 1024px) {
     .navBar {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        margin-right: 100px;
     }
 
     .container {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 30px 32px 50px 32px;
+        padding: 30px 32px 30px 32px;
     }
 
     .imageNav {

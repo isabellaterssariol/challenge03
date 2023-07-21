@@ -2,11 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 90vw;
+    min-width: 80vw;
     height: 3.438rem;
     overflow: hidden;
-    margin: 0px 30px 0px 25px;
-    padding-top: 20px;
+    padding: 20px 20px 0px 20px;
 }
 
 .text {
@@ -31,4 +30,10 @@
     border: none;
     background-color: var(--color-white);
     cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+    .header {
+        display: none;
+    }
 }

@@ -6,7 +6,7 @@ import menuBurger from "../assets/menuBurger.png";
 import logo from "../assets/audioLogo.png";
 
 interface NavBarProps {
-  photo: string;
+  photo?: string;
 }
 
 const NavBar: React.FC<NavBarProps> = ({ photo }) => {
@@ -34,13 +34,15 @@ const NavBar: React.FC<NavBarProps> = ({ photo }) => {
 
                 <NavLink to="/cart" className={classes.linkNav}>Shopping Cart</NavLink>
             </div>
-            <div className={classes.imageNav}>
-                <img 
-                    src={photo} 
-                    alt="User Avatar" 
-                    className={classes.photoUser}
-                />
-            </div>
+            {photo && (
+                <div className={classes.imageNav}>
+                    <img 
+                        src={photo} 
+                        alt="User Avatar" 
+                        className={classes.photoUser}
+                    />
+                </div>
+            )}
         </div>
     );
 };

@@ -8,6 +8,7 @@
     border-radius: 0.625rem;
     border: 1px solid var(--color-grey);
     background: var(--color-white);
+    overflow: hidden;
 }
 
 .inputSearch {
