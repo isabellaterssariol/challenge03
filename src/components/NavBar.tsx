@@ -30,11 +30,11 @@ const NavBar: React.FC<NavBarProps> = ({ photo, showTrash, onClick }) => {
                 <p className={classes.logoName}>Audio</p>
             </div>
             <div className={classes.navBar}>
-                <NavLink to="/" className={classes.linkNav}>Home</NavLink>
+                <NavLink to="/" className={`${classes.linkNav} ${window.location.pathname === "/" ? classes.active : ""}`}>Home</NavLink>
 
-                <NavLink to="/all-products" className={classes.linkNav}>Products</NavLink>
+                <NavLink to="/all-products" className={`${classes.linkNav} ${window.location.pathname === "/all-products" ? classes.active : ""}`}>Products</NavLink>
 
-                <NavLink to="/cart" className={classes.linkNav}>Shopping Cart</NavLink>
+                <NavLink to="/cart" className={`${classes.linkNav} ${window.location.pathname === "/cart" ? classes.active : ""}`}>Shopping Cart</NavLink>
             </div>
             {photo && (
                 <div className={classes.imageNav}>

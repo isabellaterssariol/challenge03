@@ -13,7 +13,11 @@ const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
         <div className={classes.container}>
             <div className={classes.infoText}>
                 <p className={classes.title}>{title}</p>
-                <p><Link to="/all-products" className={classes.link}>See All</Link></p>
+                <p>
+                    <Link to="/all-products" className={classes.link}>
+                        See All
+                    </Link>
+                </p>
             </div>
             <div>
                 <Splide
@@ -47,11 +51,34 @@ const SomeProducts: React.FC<SomeProductsProps> = ({ title }) => {
                     <SplideSlide>
                         <ProductCard productId={27}/> 
                     </SplideSlide>
+                    <SplideSlide>
+                        <ProductCard productId={19}/> 
+                    </SplideSlide>
+                    <SplideSlide>
+                        <ProductCard productId={7}/> 
+                    </SplideSlide>
+                    <SplideSlide>
+                        <ProductCard productId={23}/> 
+                    </SplideSlide>
+                    <SplideSlide>
+                        <ProductCard productId={29}/> 
+                    </SplideSlide>
+                    <SplideSlide>
+                        <ProductCard productId={4}/> 
+                    </SplideSlide>
+                    <SplideSlide>
+                        <ProductCard productId={26}/> 
+                    </SplideSlide>
+                    <SplideSlide>
+                        <ProductCard productId={16}/> 
+                    </SplideSlide>
+                    <SplideSlide>
+                        <ProductCard productId={28}/> 
+                    </SplideSlide>
                 </Splide>
-            </div>
-            
+            </div>  
         </div>
-    )
-}
+    );
+};
 
 export default SomeProducts;

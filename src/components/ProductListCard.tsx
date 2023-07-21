@@ -33,7 +33,15 @@ interface ProductListProps {
 
 const apiUrl = "https://run.mocky.io/v3/2e274c48-e3d7-4b21-820a-c5c3de9f53f5";
 
-const ProductListCard: React.FC<ProductListProps> = ({ productId, showReviews, showQuantity, quantity, addOne, removeOne, removeProduct }) => {
+const ProductListCard: React.FC<ProductListProps> = ({ 
+    productId, 
+    showReviews, 
+    showQuantity, 
+    quantity, 
+    addOne, 
+    removeOne, 
+    removeProduct }) => {
+
     const [product, setProduct] = useState<ProductType | null>(null);
     
     useEffect(() => {
@@ -44,7 +52,7 @@ const ProductListCard: React.FC<ProductListProps> = ({ productId, showReviews, s
                     (item: ProductType) => item.id === productId
                 );
                 setProduct(productData);
-            } catch (error) {
+            }   catch (error) {
                 console.error("Error in finding product:", error);
             }
         }; 
@@ -60,60 +68,60 @@ const ProductListCard: React.FC<ProductListProps> = ({ productId, showReviews, s
         <div className={classes.container}>
             <Link to={`/product/${product.id}`} className={classes.link}>
                 <img
-                        src={headsetImage}
-                        alt="Headset"
-                        className={classes.headset}
+                    src={headsetImage}
+                    alt="Headset"
+                    className={classes.headset}
                 />
             </Link>    
-                <div className={classes.infoText}>
+            <div className={classes.infoText}>
+                <Link to={`/product/${product.id}`} className={classes.link}>
+                    <div>
+                        <h1>{product.name}</h1>
+                        <p className={classes.price}>
+                            {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
+                        </p>
+                    </div>    
+                </Link>
+
+                {showReviews && (
                     <Link to={`/product/${product.id}`} className={classes.link}>
-                        <div>
-                            <h1>{product.name}</h1>
-                            <p className={classes.price}>
-                                {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
-                            </p>
-                        </div>    
+                        <div className={classes.reviews}>
+                            <img
+                                src={starRating}
+                                    alt="Star"
+                                className={classes.star}
+                            /> 
+                            <p className={classes.rating}>{product.rating}</p>
+                            <p>{`${product.reviews.length} Reviews`}</p>
+                            <i className="material-symbols-outlined">more_vert</i>
+                        </div>
                     </Link>
+                )}
+                
+                {showQuantity && (
+                    <div className={classes.quantity}>
+                        {quantity && quantity > 1 ? 
+                        <button className={classes.button} onClick={() => removeOne && removeOne(product.id)}>
+                            <i className="material-symbols-outlined">remove</i>
+                        </button> :
+                        <button className={classes.buttonDisabled} disabled>
+                            <i className="material-symbols-outlined">remove</i>
+                        </button>}
 
-                    {showReviews && (
-                        <Link to={`/product/${product.id}`} className={classes.link}>
-                            <div className={classes.reviews}>
-                                <img
-                                    src={starRating}
-                                     alt="Star"
-                                    className={classes.star}
-                                /> 
-                                <p className={classes.rating}>{product.rating}</p>
-                                <p>{`${product.reviews.length} Reviews`}</p>
-                                <i className="material-symbols-outlined">more_vert</i>
-                            </div>
-                        </Link>
-                    )}
-                    
-                    {showQuantity && (
-                        <div className={classes.quantity}>
-                            {quantity && quantity > 1 ? 
-                            <button className={classes.button} onClick={() => removeOne && removeOne(product.id)}>
-                                <i className="material-symbols-outlined">remove</i>
-                            </button> :
-                            <button className={classes.buttonDisabled} disabled>
-                                <i className="material-symbols-outlined">remove</i>
-                            </button>}
+                        <p className={classes.text}>{quantity}</p>
 
-                            <p className={classes.text}>{quantity}</p>
+                        {quantity && 
+                        <button className={classes.button} onClick={() => addOne && addOne(product.id)}>
+                            <i className="material-symbols-outlined">add</i>
+                        </button>}
 
-                            {quantity && 
-                            <button className={classes.button} onClick={() => addOne && addOne(product.id)}>
-                                <i className="material-symbols-outlined">add</i>
-                            </button>}
-
-                            {quantity && 
-                            <button className={classes.buttonTrash} onClick={() => removeProduct && removeProduct(productId)}>
-                                <i className="material-symbols-outlined">delete</i>
-                            </button>}
-                      </div>
-                    )}
-                </div>                  
+                        {quantity && 
+                        <button className={classes.buttonTrash} onClick={() => removeProduct && removeProduct(productId)}>
+                            <i className="material-symbols-outlined">delete</i>
+                        </button>}
+                    </div>
+                )}
+            </div>                  
         </div>
     );
 };

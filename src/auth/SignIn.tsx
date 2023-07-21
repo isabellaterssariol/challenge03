@@ -13,7 +13,7 @@ const SignIn = () => {
       console.log("User logged in successfully!");
       navigate("/");
     } catch (error) {
-        console.error("Authentication error:", error);
+      console.error("Authentication error:", error);
     }
   };
 

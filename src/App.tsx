@@ -51,7 +51,7 @@ function App() {
               element={<ErrorPage />}
             />
           </Routes>
-         </CartProvider> 
+        </CartProvider> 
       </BrowserRouter>
     </FirebaseAppProvider>
   );

@@ -7,8 +7,7 @@ import { motion } from "framer-motion";
 import NavBar from "../components/NavBar";
 
 const CartPage = () => {
-  const { cartProducts, addToCart, removeFromCart, removeProduct, removeAll } =
-    useCartContext();
+  const { cartProducts, addToCart, removeFromCart, removeProduct, removeAll } = useCartContext();
 
   const handleTrashClick = () => {
     removeAll();
@@ -92,14 +91,10 @@ const CartPage = () => {
 
         <div className={classes.footer}>
           <div className={classes.total}>
-            <p
-              className={classes.totalItems}
-            >{`Total ${totalItems()} Item(s)`}</p>
+            <p className={classes.totalItems}>{`Total ${totalItems()} Item(s)`}</p>
             <p className={classes.totalPrice}>{`USD ${totalPrice()}`}</p>
           </div>
-          <div className={classes.button}>
-            <Button text={"Proceed to Checkout"} showArrow={true} />
-          </div>
+          <Button text={"Proceed to Checkout"} showArrow={true} />
         </div>
       </div>
     </>

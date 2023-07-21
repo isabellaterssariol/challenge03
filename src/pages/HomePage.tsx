@@ -6,8 +6,8 @@ import NavBar from "../components/NavBar";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface HomePageProps {
-  name: string;
-  photo: string;
+    name: string;
+    photo: string;
 }
 
 const HomePage: React.FC<HomePageProps> = ({ name, photo }) => {
@@ -23,7 +23,9 @@ const HomePage: React.FC<HomePageProps> = ({ name, photo }) => {
                             <NavBar photo={photo}/>
                         </div> 
                         <div className={classes.welcomeText}>
-                            <p className={classes.welcome}>{name ? `Hi, ${name}!` : "Hi, user!"}</p>
+                            <p className={classes.welcome}>
+                                {name ? `Hi, ${name}!` : "Hi, user!"}
+                            </p>
                             <p className={classes.text}>
                                 What are you looking for <br /> today?
                             </p>

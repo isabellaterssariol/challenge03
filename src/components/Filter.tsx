@@ -41,11 +41,12 @@ const Filter: React.FC<FilterProps> = ({
         <BottomSheet 
             open={showFilter} 
             onDismiss={closeFilter}>
-
             <div className={classes.filterOpened}>
                 <div className={classes.header}>
                     <h1>Filter</h1>
-                    <button onClick={closeFilter} className={classes.buttonHeader}>X</button>
+                    <button onClick={closeFilter} className={classes.buttonHeader}>
+                        X
+                    </button>
                 </div>
 
                 <div className={classes.categories}>

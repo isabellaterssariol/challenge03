@@ -34,6 +34,7 @@ const CategoryStore = () => {
   };
 
   let filteredProducts = products;
+  
   if (selectedCategory) {
     filteredProducts = products.filter(
       (product) => product.category === selectedCategory

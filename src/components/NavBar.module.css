@@ -1,7 +1,7 @@
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 24px 22px;
 }
 
@@ -10,6 +10,10 @@
     color: var(--color-white);
     font-family: "DM Sans", serif;
     padding: 10px 0px;
+}
+
+.burgerMenu {
+    margin-right: auto;
 }
 
 .logo {
@@ -42,16 +46,28 @@
     text-decoration: none;
     color: var(--colors-default);
     margin: 0px 8px;
+    padding: 5px;
+}
+
+.linkNav.active {
+    color: var(--color-primary);
 }
 
 .linkNav:hover {
-    color: var(--color-primary);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .photoUser {
     width: 35px;
     height: 35px;
     border-radius: 35px;
+}
+
+.imageNav {
+    margin-left: auto;
 }
 
 .button {

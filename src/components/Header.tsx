@@ -9,7 +9,13 @@ type HeaderProps = {
   onClick?: () => void;
 };
 
-const Header: React.FC<HeaderProps> = ({ showText, text, showCart, showTrash, onClick }) => {
+const Header: React.FC<HeaderProps> = ({ 
+    showText, 
+    text, 
+    showCart, 
+    showTrash, 
+    onClick }) => {
+        
     const navigate = useNavigate();
   
     const goBack = () => {

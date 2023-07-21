@@ -74,7 +74,7 @@ const ProductPage = () => {
 
   const handleAddToCart = () => {
     addToCart(product);
-    navigate('/cart'); 
+    navigate("/cart"); 
   };
 
   return (
@@ -83,7 +83,7 @@ const ProductPage = () => {
       <div className={classes.navBar}> 
         <NavBar />
       </div>
-      <p className={classes.price}>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
+      <p className={classes.price}>{`USD ${Math.round(parseFloat(product.price.replace("$", "")))}`}</p>
       <h1 className={classes.title}>{product.name}</h1>
 
       <motion.div
@@ -117,7 +117,10 @@ const ProductPage = () => {
               alt="Headset"
               className={classes.imageHeadset}
             />
-            <p className={classes.reviewsLength}>{`Reviews (${product.reviews.length})`}</p>
+            <p className={classes.reviewsLength}>
+              {`Reviews (${product.reviews.length})`}
+            </p>
+
             {product.reviews.map((review) => (
               <div key={review.id} className={classes.review}>
                 <img
@@ -130,9 +133,13 @@ const ProductPage = () => {
                     <h3>{review.user}</h3>
                     <p className={classes.date}>{format(new Date(review.date), "dd/MM/yyyy")}</p>
                   </div>
-                  <div className={classes.stars}>{renderStars(review.rating)}</div>
+                  <div className={classes.stars}>
+                    {renderStars(review.rating)}
+                  </div>
                 </div>
-                <p className={classes.description}>{review.description}</p>
+                <p className={classes.description}>
+                  {review.description}
+                </p>
               </div>
             ))}
             <div className={classes.someProducts}>

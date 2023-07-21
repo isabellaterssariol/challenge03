@@ -39,7 +39,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ productId, showReviews }) => 
                     (item: ProductType) => item.id === productId
                 );
                 setProduct(productData);
-            } catch (error) {
+            }   catch (error) {
                 console.error("Error in finding product:", error);
             }
         }; 
@@ -65,17 +65,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ productId, showReviews }) => 
                         {`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}
                     </p>
                 </div>
-                {showReviews && <div className={classes.reviews}>
-                    <img
-                        src={starRating}
-                        alt="Star"
-                        className={classes.star}
-                    /> 
-                    <p className={classes.rating}>{product.rating}</p>
-                    <p>{`${product.reviews.length} Reviews`}</p>
-                    <i className="material-symbols-outlined">more_vert</i>
-                </div> 
-                }
+
+                {showReviews && (
+                    <div className={classes.reviews}>
+                        <img
+                            src={starRating}
+                            alt="Star"
+                            className={classes.star}
+                        /> 
+                        <p className={classes.rating}>{product.rating}</p>
+                        <p>{`${product.reviews.length} Reviews`}</p>
+                        <i className="material-symbols-outlined">more_vert</i>
+                    </div> 
+                )}
             </Link>
         </div>
     );
