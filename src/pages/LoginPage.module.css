@@ -185,3 +185,94 @@
     margin-top: 10px;
     width: 28vw;
 }
+
+@media (max-width: 320px) {
+    .field {
+        width: 14rem;
+        height: 3.125rem;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .field {
+        width: 24rem;
+        height: 3.125rem;
+    }
+
+    .container {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .header {
+        margin-top: 11rem;
+    }
+
+    .header h1 {
+        font-size: 4rem;
+    }
+
+    .header p {
+        font-size: 1.1rem;
+    }
+
+    .footerText {
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .form {
+        background-color:rgba(22, 199, 131, 0.343);
+        border-radius: 30px;
+        width: 30rem;
+        padding: 40px 0px;
+    }
+
+    .header h1 {
+        font-size: 4rem;
+    }
+
+    .header p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .form {
+        background-color:rgba(22, 199, 131, 0.343);
+        border-radius: 30px;
+        width: 40rem;
+        padding: 50px 0px;
+    }
+
+    .field {
+        width: 28rem;
+        height: 3.6rem;
+    }
+
+    .header h1 {
+        font-size: 3.3rem;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+    }
+
+    .footerText {
+        font-size: 1rem;
+    }
+}
