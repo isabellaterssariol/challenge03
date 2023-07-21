@@ -12,28 +12,28 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ name, photo }) => {
     return (
-        <AnimatePresence mode="wait">
-            <motion.div
-                initial={{ x: "-100%", opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: "100%", opacity: 0.5 }}
-                transition={{ duration: 1 }}>
-                <div className={classes.container}>
-                    <div>
-                        <NavBar photo={photo}/>
-                    </div> 
-                    <div className={classes.welcomeText}>
-                        <p className={classes.welcome}>{name ? `Hi, ${name}!` : "Hi, user!"}</p>
-                        <p className={classes.text}>
-                            What are you looking for <br /> today?
-                        </p>
-                    </div>
-                    <Search />
-                    <CategoryStore />
-                    <SomeProducts title={"Featured Products"}/>
-                </div>
-            </motion.div>
-        </AnimatePresence> 
+        <div className={classes.container}>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    initial={{ x: "-100%", opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: "100%", opacity: 0.5 }}
+                    transition={{ duration: 1 }}>
+                        <div>
+                            <NavBar photo={photo}/>
+                        </div> 
+                        <div className={classes.welcomeText}>
+                            <p className={classes.welcome}>{name ? `Hi, ${name}!` : "Hi, user!"}</p>
+                            <p className={classes.text}>
+                                What are you looking for <br /> today?
+                            </p>
+                        </div>
+                        <Search />
+                        <CategoryStore />
+                        <SomeProducts title={"Featured Products"}/>
+                </motion.div>
+            </AnimatePresence> 
+        </div>
     );
 };
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 
 type HeaderProps = {
@@ -10,12 +10,18 @@ type HeaderProps = {
 };
 
 const Header: React.FC<HeaderProps> = ({ showText, text, showCart, showTrash, onClick }) => {
+    const navigate = useNavigate();
+  
+    const goBack = () => {
+        navigate(-1); 
+    };
+
     return (
         <header className={classes.header}>
             <div className={classes.homeButton}>
-                <Link to="/">
+                <button onClick={goBack} className={classes.button}>
                     <i className="material-symbols-outlined">arrow_back_ios</i>
-                </Link>
+                </button>
             </div> 
 
             <div className={classes.text}>

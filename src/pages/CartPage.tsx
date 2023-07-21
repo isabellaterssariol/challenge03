@@ -68,9 +68,10 @@ const CartPage = () => {
             <ul>
               {exclusiveId.map((productId) => (
                 <motion.div
-                  initial={{ scale: 0.5 }}
-                  animate={{ scale: 1 }} 
-                  transition={{ duration: 1.5 }}>
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "-100%" }}
+                  transition={{ duration: 1 }}>
                   <div key={productId}>
                     <li>
                       <ProductListCard

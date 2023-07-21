@@ -1,7 +1,5 @@
 .container {
-    max-width: 100%;
     font-family: "DM Sans", serif;
-    background-color: var(--color-white);
     overflow: hidden;
 }
 
