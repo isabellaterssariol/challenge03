@@ -1,7 +1,8 @@
 .container {
-    max-width: 100%;
+    min-width: 90vw;
     min-height: 100vh;
     background-color: var(--color-white);
+    overflow: hidden;
 }
 
 .text {

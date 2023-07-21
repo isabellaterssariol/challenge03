@@ -168,3 +168,43 @@
     width: 100%;
     margin-bottom: 2rem;
 }
+
+.navBar {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .navBar {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .userInfo h3 {
+        font-size: 1.1rem;
+    }
+    
+    .date {
+        color: #7F7F7F;
+        text-align: right;
+        font-family: "DM Sans", serif;
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .userImage {
+        width: 2.8rem; 
+        height: 2.8rem; 
+    }
+    
+    .titleUser {
+        min-width: 85vw;
+    }
+
+    .features {
+        font-size: 1.2rem;
+    }
+}

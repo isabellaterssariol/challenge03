@@ -8,8 +8,9 @@ import classes from './ProductPage.module.css';
 import Button from "../components/Button";
 import SomeProducts from "../components/SomeProducts";
 import { useCartContext } from "../components/CartContext";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { format } from "date-fns";
+import NavBar from "../components/NavBar";
 
 interface ProductType {
   id: number;
@@ -77,90 +78,85 @@ const ProductPage = () => {
   };
 
   return (
-    <AnimatePresence mode="wait">
+    <div className={classes.container}>
+      <Header showCart={true}/>
+      <div className={classes.navBar}> 
+        <NavBar />
+      </div>
+      <p className={classes.price}>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
+      <h1 className={classes.title}>{product.name}</h1>
+
       <motion.div
-        initial={{ x: "100%", opacity: 0 }}
-        animate={{ x: 0, opacity: 1  }}
-        exit={{ x: "-100%", opacity: 0.5 }}
-        transition={{ duration: 0.5 }}>
-        <div className={classes.container}>
-          <Header showCart={true}/>
-          <p className={classes.price}>{`USD ${Math.round(parseFloat(product.price.replace('$', '')))}`}</p>
-          <h1 className={classes.title}>{product.name}</h1>
+        initial={{ scale: 0.5 }}
+        animate={{ scale: 1 }} 
+        transition={{ duration: 1.5 }}>
+        <div className={classes.optionsButton}>
+          <button
+            onClick={() => handleOptionChange("overview")}
+            className={`${classes.options} ${selectedOption === "overview" ? classes.active : ""}`}>
+            Overview
+          </button>
 
-          <motion.div
-            initial={{ scale: 0.5 }}
-            animate={{ scale: 1 }} 
-            transition={{ duration: 1.5 }}>
-            <div className={classes.optionsButton}>
-              <button
-                onClick={() => handleOptionChange("overview")}
-                className={`${classes.options} ${selectedOption === "overview" ? classes.active : ""}`}>
-                Overview
-              </button>
-
-              <button
-                onClick={() => handleOptionChange("features")}
-                className={`${classes.options} ${selectedOption === "features" ? classes.active : ""}`}>
-                Features
-              </button>
-            </div>
-          </motion.div>
-
-          {selectedOption=== "overview" && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ duration: 0.5 }}>
-              <div className={classes.overview}>
-                <img
-                  src={headsetImage}
-                  alt="Headset"
-                  className={classes.imageHeadset}
-                />
-                <p className={classes.reviewsLength}>{`Reviews (${product.reviews.length})`}</p>
-                {product.reviews.map((review) => (
-                  <div key={review.id} className={classes.review}>
-                    <img
-                      src={userImage}
-                      alt="Headset"
-                      className={classes.userImage}
-                    />
-                    <div className={classes.userInfo}> 
-                      <div className={classes.titleUser}>
-                        <h3>{review.user}</h3>
-                        <p className={classes.date}>{format(new Date(review.date), "dd/MM/yyyy")}</p>
-                      </div>
-                      <div className={classes.stars}>{renderStars(review.rating)}</div>
-                    </div>
-                    <p className={classes.description}>{review.description}</p>
-                  </div>
-                ))}
-                <div className={classes.someProducts}>
-                  <SomeProducts title={"Another Product"}/>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {selectedOption === "features" && ( 
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.5 }}>
-              <div className={classes.features}>
-                <p>{product.description}</p>
-              </div>
-            </motion.div>
-          )}
-          <div className ={classes.button}>
-            <Button text={"Add To Cart"} onClick={handleAddToCart}/>
-          </div>
-        </div>  
+          <button
+            onClick={() => handleOptionChange("features")}
+            className={`${classes.options} ${selectedOption === "features" ? classes.active : ""}`}>
+            Features
+          </button>
+        </div>
       </motion.div>
-    </AnimatePresence>  
+
+      {selectedOption=== "overview" && (
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ duration: 0.5 }}>
+          <div className={classes.overview}>
+            <img
+              src={headsetImage}
+              alt="Headset"
+              className={classes.imageHeadset}
+            />
+            <p className={classes.reviewsLength}>{`Reviews (${product.reviews.length})`}</p>
+            {product.reviews.map((review) => (
+              <div key={review.id} className={classes.review}>
+                <img
+                  src={userImage}
+                  alt="Headset"
+                  className={classes.userImage}
+                />
+                <div className={classes.userInfo}> 
+                  <div className={classes.titleUser}>
+                    <h3>{review.user}</h3>
+                    <p className={classes.date}>{format(new Date(review.date), "dd/MM/yyyy")}</p>
+                  </div>
+                  <div className={classes.stars}>{renderStars(review.rating)}</div>
+                </div>
+                <p className={classes.description}>{review.description}</p>
+              </div>
+            ))}
+            <div className={classes.someProducts}>
+              <SomeProducts title={"Another Product"}/>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {selectedOption === "features" && ( 
+        <motion.div
+          initial={{ x: "-100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ duration: 0.5 }}>
+          <div className={classes.features}>
+            <p>{product.description}</p>
+          </div>
+        </motion.div>
+      )}
+      <div className ={classes.button}>
+        <Button text={"Add To Cart"} onClick={handleAddToCart}/>
+      </div>
+    </div>  
   );
 };
 
