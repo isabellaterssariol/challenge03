@@ -23,7 +23,7 @@
 }
 
 .categoryButton.active {
-    background: var(--color-primary, #0ACF83);
+    background: var(--color-primary);
     color: var(--color-white);
     border-radius: 1.875rem;
 }

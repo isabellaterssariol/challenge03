@@ -95,7 +95,7 @@
     align-items: center;
     justify-content: flex-end;
     min-width: 70vw;
-    margin-top: 10px;
+    margin-top: 0.625rem;
 }
 
 .userInfo h3 {
@@ -111,14 +111,14 @@
     color: #7F7F7F;
     text-align: right;
     font-family: "DM Sans", serif;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.2px;
 }
 
 .stars {
     display: inline-block;
-    margin: 5px 0px;
+    margin: 0.313rem 0rem;
 }
 
 .description {
@@ -188,7 +188,7 @@
         color: #7F7F7F;
         text-align: right;
         font-family: "DM Sans", serif;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .description {

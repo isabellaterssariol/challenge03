@@ -1,12 +1,12 @@
 .bm-burger-button {
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 }
   
 .bm-cross-button {
-    height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    width: 1.5rem;
 }
   
 .bm-cross {
@@ -17,17 +17,17 @@
     position: fixed;
     height: 100%;
     left: 0;
-    top: 80px;
+    top: 5rem;
 }
   
 .bm-menu {
     background: #2bb17e;
-    font-size: 1.15em;
+    font-size: 1.15rem;
     overflow: hidden !important;
 }
   
 .bm-item-list {
-    padding: 0.8em;
+    padding: 0.8rem;
 }
   
 .bm-item {

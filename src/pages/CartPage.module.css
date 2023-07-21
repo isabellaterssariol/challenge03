@@ -22,7 +22,7 @@
 .totalItems {
     margin-right: auto;
     color: var(--color-default);
-    font-size: 13px;
+    font-size: 0.813rem;
     font-weight: 700;
     line-height: 1.25rem;
     letter-spacing: 0.2px;
@@ -63,7 +63,7 @@ ul {
     .total {
         display: flex;
         min-width: 20vw;
-        margin-left: 30px;
+        margin-left: 1.875rem;
     }
 
     .totalItems {
@@ -84,7 +84,7 @@ ul {
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 24px 22px;
+        padding: 1.5rem 1.375rem;
     }
 
     .footer {

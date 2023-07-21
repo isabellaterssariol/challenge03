@@ -101,7 +101,7 @@
     width: 90vw;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 25px;
+    margin-bottom: 1.563rem;
 }
 
 .filter h2 {

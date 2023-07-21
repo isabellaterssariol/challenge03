@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    width: 9.063rem;
+    width: 8.8rem;
     padding: 1.25rem 0.938rem;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
     border-radius: 0.938rem;
     box-shadow: 0rem 0.25rem 1.875rem 0rem rgba(104, 117, 130, 0.05);
     font-family: "DM Sans", serif;
-    margin: 0rem 0.5rem 0.813rem 0.3rem;
+    margin: 0rem 0.78rem 0.813rem 0.3rem;
 }
 
 .link {

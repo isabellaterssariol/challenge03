@@ -24,14 +24,12 @@
 
 .header h1 {
     font-size: 3.191rem;
-    font-style: normal;
     font-weight: 700;
     letter-spacing: 0.04rem;
 }
 
 .header p {
     font-size: 1rem;
-    font-style: normal;
     font-weight: 700;
     line-height: 1.25rem;
     letter-spacing: 0.013rem;
@@ -73,7 +71,6 @@
 .field input::placeholder {
     color: var(--color-grey);
     font-size: 0.875rem;
-    font-style: normal;
     font-weight: 400;
     line-height: 1.25rem;
     letter-spacing: 0.013rem;
@@ -169,20 +166,20 @@
     border-radius: 0.625rem;
     border: 1px solid var(--color-grey);
     background-color: var(--color-white);
-    padding: 15px 5px;
+    padding: 0.938rem 0.313rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
   
 .resetEmailMessage p {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     font-family: "DM Sans", serif;
-    font-size: 17px;
+    font-size: 1.063rem;
 }
   
 .resetEmailMessage button {
-    margin-top: 10px;
+    margin-top: 0.625rem;
     width: 28vw;
 }
 
@@ -231,9 +228,9 @@
 
     .form {
         background-color:rgba(22, 199, 131, 0.343);
-        border-radius: 30px;
+        border-radius: 1.875rem;
         width: 30rem;
-        padding: 40px 0px;
+        padding: 2.5rem 0rem;
     }
 
     .header h1 {
@@ -254,9 +251,9 @@
 
     .form {
         background-color:rgba(22, 199, 131, 0.343);
-        border-radius: 30px;
+        border-radius: 1.875rem;
         width: 40rem;
-        padding: 50px 0px;
+        padding: 3.125rem 0rem;
     }
 
     .field {
