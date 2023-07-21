@@ -87,7 +87,15 @@
 .userImage {
     width: 2.5rem; 
     height: 2.5rem;
-    margin-right: 0.625rem; 
+    margin-right: 0.7rem; 
+}
+
+.titleUser {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 70vw;
+    margin-top: 10px;
 }
 
 .userInfo h3 {
@@ -96,7 +104,21 @@
     font-weight: 400;
     line-height: 1.25rem;
     letter-spacing: 0.2px;
-    margin-bottom: 0.313rem;
+    margin-right: auto;
+}
+
+.date {
+    color: #7F7F7F;
+    text-align: right;
+    font-family: "DM Sans", serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.stars {
+    display: inline-block;
+    margin: 5px 0px;
 }
 
 .description {

@@ -9,6 +9,7 @@ import Button from "../components/Button";
 import SomeProducts from "../components/SomeProducts";
 import { useCartContext } from "../components/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { format } from "date-fns";
 
 interface ProductType {
   id: number;
@@ -22,6 +23,7 @@ interface ReviewType {
   user: string;
   description: string;
   rating: number;
+  date: string;
   id: number;
 }
 
@@ -126,8 +128,11 @@ const ProductPage = () => {
                       className={classes.userImage}
                     />
                     <div className={classes.userInfo}> 
-                      <h3>{review.user}</h3>
-                      {renderStars(review.rating)}
+                      <div className={classes.titleUser}>
+                        <h3>{review.user}</h3>
+                        <p className={classes.date}>{format(new Date(review.date), "dd/MM/yyyy")}</p>
+                      </div>
+                      <div className={classes.stars}>{renderStars(review.rating)}</div>
                     </div>
                     <p className={classes.description}>{review.description}</p>
                   </div>
